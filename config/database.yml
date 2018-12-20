@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: 123
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: autenticator_toauth_development
+
+test:
+  <<: *default
+  database: autenticator_toauth_test
+
+production:
+  <<: *default
+  database: autenticator_toauth_production
+#  username: postgres
+#  password: <%= ENV['COINS_PRODUCTION'] %>

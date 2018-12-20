@@ -1,0 +1,14 @@
+{
+  "name": "autenticator_toauth",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "material-icons": "^0.2.3",
+    "materialize-css": "^1.0.0",
+    "materialize-js": "^1.0.0"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "KleberDevMen <klebersubcontas@gmail.com>",
+  "license": "MIT"
+}

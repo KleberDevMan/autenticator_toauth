@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desc: MyString
+  value: false
+  selected: false
+
+two:
+  desc: MyString
+  value: false
+  selected: false
