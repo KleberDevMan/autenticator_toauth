@@ -19,23 +19,44 @@ class IndexController < ApplicationController
   end
 
   def questions
-    # Crio a primeira pergunta
-    if $request_question == nil
-      generate_question()
-      puts $answers.inspect
-      puts $request_question.inspect
+    puts $request_questions.inspect
+
+    # Crias as perguntas
+    if $request_questions.empty?
+      $request_questions = generate_questions(3)
+      puts $request_questions.inspect
+      puts $request_questions[0].answers.count
+      puts $request_questions[1].answers.empty?
+      puts $request_questions[2].answers.inspect
     end
   end
 
   # --- UTIL ----
-  def generate_question
-    # Busco uma Questao aleatoria no banco
-    question = Question.all.sample
-    # Crio pergunta baseado na requisicao do usuario
-    $request_question = RequestQuestion.new(desc: question.desc, question: question, user_request: $user_request)
-    # Gero 3 respostas aleatórias, baseadas na questao aleatoria buscada
-    $answers = generate_anwsers($request_question, 3)
+  def generate_questions(questions_numbers)
+    # # Busco uma Questao aleatoria no banco
+    # question = Question.all.sample
+    # # Crio pergunta baseado na requisicao do usuario
+    # $request_question = RequestQuestion.new(desc: question.desc, question: question, user_request: $user_request)
+    # # Gero 3 respostas aleatórias, baseadas na questao aleatoria buscada
+    # $answers = generate_anwsers($request_question, 3)
+
+    request_questions = []
+
+    for i in 1..questions_numbers
+      # Busco uma pergunta aleatoria no banco
+      question = Question.all.sample
+      # Crio pergunta baseado na requisicao do usuario
+      request_question = RequestQuestion.new(desc: question.desc, question: question, user_request: $user_request)
+      # adiciono na lista
+      request_questions << request_question
+
+      # Crio as respostas para a pergunta
+      generate_anwsers(request_question, 3)
+    end
+
+    request_questions
   end
+
   def result
     result = false
   end
@@ -46,6 +67,7 @@ class IndexController < ApplicationController
     # Variaveis globais
     $request_question = nil
     $answers = []
+    $request_questions = []
 
     # Tipos de questoes
     $name_type = QuestionType.find(1)
