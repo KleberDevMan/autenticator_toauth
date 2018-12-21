@@ -1,1 +1,137 @@
 <h1>Question 1</h1>
+
+<p><%= $request_question.desc %></p><br>
+
+<% $answers.each do |answer| %>
+  <p><%= answer.desc %></p>
+<% end %><br>
+
+
+
+
+
+<%= form_for(result_path) do |f| %>
+
+  <div class="deep-purple bar "></div>
+
+  <!-- card question -->
+  <div class="card">
+
+    <!--    question 1-->
+    <div class="field q11 card-content">
+
+      <%= f.label :q1, $request_question.desc, class: "flow-text" %> <br>
+      <%= f.radio_button :q1, :true, id: "a11" %>
+      <label for="a11" class="waves-effect waves-light btn q1"><%= $answers[0].desc %></label> <br> <br>
+      <%= f.radio_button :q1, :false, id: "a12" %>
+      <label for="a12" class="waves-effect waves-light btn q1"><%= $answers[1].desc %></label> <br> <br>
+      <%= f.radio_button :q1, :false, id: "a13" %>
+      <label for="a13" class="waves-effect waves-light btn q1"><%= $answers[2].desc %></label>
+
+    </div>
+
+    <!--    question 2-->
+    <div class="field q22 card-content">
+
+      <%= f.label :q2, $request_question, class: "flow-text" %> <br>
+      <div style="width:300px">
+        <%= f.radio_button :q2, :true, id: "a21" %>
+        <label for="a21" class="waves-effect waves-light btn q2"><%= $answers[0].desc %></label> <br> <br>
+        <%= f.radio_button :q2, :false, id: "a22" %>
+        <label for="a22" class="waves-effect waves-light btn q2"><%= $answers[1].desc %></label> <br> <br>
+        <%= f.radio_button :q2, :false, id: "a23" %>
+        <label for="a23" class="waves-effect waves-light btn q2"><%= $answers[2].desc %></label>
+
+      </div>
+
+    </div>
+
+<!--    <div class="field q33 card-content">-->
+
+<!--      <%#= f.label :q3, "qual foi o estabelecimento ultimo bla bla outra ?", class: "flow-text" %> <br>-->
+<!--      <div style="width:300px">-->
+        <%#= f.radio_button :q3, :true, id: "a31" %>
+<!--        <label for="a31" class="waves-effect waves-light btn amber q3">KABUMasdzz</label> <br> <br>-->
+        <%#= f.radio_button :q3, :false, id: "a32" %>
+<!--        <label for="a32" class="waves-effect waves-light btn q3">xxAMERICANAzzzS</label> <br> <br>-->
+        <%#= f.radio_button :q3, :false, id: "a33" %>
+<!--        <label for="a33" class="waves-effect waves-light btn q3">asdBIGxx</label>-->
+
+<!--      </div>-->
+
+
+<!--    </div>-->
+    <div class="btn deep-purple darken-3 waves-effect back2 right"> Voltar</div>
+    <div class="btn deep-purple darken-3 waves-effect back3 right"> Voltar</div>
+
+  </div>
+
+  <div class="row box">
+    <div class="">
+      <%= f.submit "Enviar Respostas", class: "btn waves-effect waves-light blue sub actb col s5" %>
+    </div>
+
+    <div class="btn deep-purple darken-3 waves-effect rr right col s5 actb "> REFAZER RESPOSTAS</div>
+
+  </div>
+<% end %>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.q22').hide();
+        $('.q33').hide();
+        $('.sub').hide();
+        $('.rr').hide();
+        $('.back2').hide();
+        $('.back3').hide();
+
+        $(".q1").click(function () {
+            $('.q11').hide(500);
+            $('.q22').show(500);
+            $('.bar').animate({width: "33%"});
+            $('.back2').show();
+        });
+        $(".q2").click(function () {
+            $('.q33').show(500);
+            $('.q22').hide(500);
+            $('.bar').animate({width: "66%"});
+            $('.back2').hide();
+            $('.back3').show();
+
+        });
+        $(".q3").click(function () {
+            $('.q33').hide(500);
+            $('.bar').animate({width: "100%"});
+            $('.sub').show();
+            $('.rr').show();
+            $('.back3').hide();
+        });
+
+
+        $(".back2").click(function () {
+            $('.q22').hide(500);
+            $('.q11').show(500);
+            $('.bar').animate({width: "1%"});
+            $('.back2').hide();
+
+        });
+        $(".back3").click(function () {
+            $('.q33').hide(500);
+            $('.q22').show(500);
+            $('.back3').hide();
+            $('.back2').show();
+            $('.bar').animate({width: "33%"});
+
+        });
+
+        $(".rr").click(function () {
+            $('.rr').hide();
+            $('.sub').hide();
+            $('.q11').show(500);
+            $('.bar').animate({width: "1%"})
+
+        });
+
+    });
+</script>
