@@ -15,11 +15,11 @@ class UserRequest < ApplicationRecord
   # lê-se: "UserRequest possui muitas request_questions"
   has_many :request_questions
 
-  after_create :generate_request_questions
-
-  def generate_request_questions
-    if return_receita
-      # criar as perguntas da requisição
-    end
-  end
+  # after_create :generate_request_questions
+  #
+  # def generate_request_questions
+  #   if return_receita
+  #     # criar as perguntas da requisição
+  #   end
+  # end
 end

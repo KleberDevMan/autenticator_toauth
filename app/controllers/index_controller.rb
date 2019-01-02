@@ -83,7 +83,7 @@ class IndexController < ApplicationController
     if question_type_id === $name_type.id
       # Popula lista de respostas falsas
       for i in 1..questions_nubers
-        anwer = Answer.new(desc: Name.all.sample.desc, value: false, selected: false, request_question: request_question)
+        anwer = Answer.create(desc: Name.all.sample.desc, value: false, selected: false, request_question: request_question)
         anwers << anwer
       end
 
@@ -94,7 +94,7 @@ class IndexController < ApplicationController
     # Se quer respostas do tipo: Bairro
     if question_type_id === $district_type.id
       for i in 1..questions_nubers
-        anwer = Answer.new(desc: District.all.sample.desc, value: false, selected: false, request_question: request_question)
+        anwer = Answer.create(desc: District.all.sample.desc, value: false, selected: false, request_question: request_question)
         anwers << anwer
       end
 
