@@ -8,6 +8,14 @@
 #  updated_at       :datetime         not null
 #  question_type_id :bigint(8)
 #
+# Indexes
+#
+#  index_questions_on_question_type_id  (question_type_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (question_type_id => question_types.id)
+#
 
 class Question < ApplicationRecord
   # has_many = "tem muitos"
