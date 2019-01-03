@@ -10,7 +10,7 @@
 
 
 
-<%= form_for(result_path) do |f| %>
+<%= form_tag(result_path, method: "post") do %>
 
   <div class="deep-purple bar "></div>
 
@@ -20,12 +20,12 @@
     <!--    question 1-->
     <div class="field q11 card-content">
 
-      <%= f.label :q1, $request_questions[0].question.desc, class: "flow-text" %> <br>
-      <%= f.radio_button :q1, :true, id: "a11" %>
+      <%= label_tag :q1, $request_questions[0].question.desc, class: "flow-text" %> <br>
+      <%= radio_button_tag :q1, $request_questions[0].answers[0].value, id: "a11" %>
       <label for="a11" class="waves-effect waves-light btn q1"><%= $request_questions[0].answers[0].desc %></label> <br> <br>
-      <%= f.radio_button :q1, :false, id: "a12" %>
+      <%= radio_button_tag :q1, $request_questions[0].answers[2].value, id: "a12" %>
       <label for="a12" class="waves-effect waves-light btn q1"><%= $request_questions[0].answers[2].desc %></label> <br> <br>
-      <%= f.radio_button :q1, :false, id: "a13" %>
+      <%= radio_button_tag :q1, $request_questions[0].answers[3].value, id: "a13" %>
       <label for="a13" class="waves-effect waves-light btn q1"><%= $request_questions[0].answers[3].desc %></label>
 
     </div>
@@ -33,28 +33,29 @@
     <!--    question 2-->
     <div class="field q22 card-content">
 
-      <%= f.label :q2, $request_questions[1].question.desc, class: "flow-text" %> <br>
+      <%= label_tag :q2, $request_questions[1].question.desc, class: "flow-text" %> <br>
       <div style="width:300px">
-        <%= f.radio_button :q2, :true, id: "a21" %>
+        <%= radio_button_tag :q2, :true, id: "a21" %>
         <label for="a21" class="waves-effect waves-light btn q2"><%= $request_questions[1].answers[0].desc %></label> <br> <br>
-        <%= f.radio_button :q2, :false, id: "a22" %>
+        <%= radio_button_tag :q2, :false, id: "a22" %>
         <label for="a22" class="waves-effect waves-light btn q2"><%= $request_questions[1].answers[2].desc %></label> <br> <br>
-        <%= f.radio_button :q2, :false, id: "a23" %>
+        <%= radio_button_tag :q2, :false, id: "a23" %>
         <label for="a23" class="waves-effect waves-light btn q2"><%= $request_questions[1].answers[3].desc %></label>
 
       </div>
 
     </div>
 
+    <!--    question 3-->
     <div class="field q33 card-content">
 
-      <%= f.label :q3, $request_questions[2].question.desc, class: "flow-text" %> <br>
+      <%= label_tag :q3, $request_questions[2].question.desc, class: "flow-text" %> <br>
       <div style="width:300px">
-        <%= f.radio_button :q3, :true, id: "a31" %>
+        <%= radio_button_tag :q3, :true, id: "a31" %>
         <label for="a31" class="waves-effect waves-light btn q3"><%= $request_questions[2].answers[0].desc %></label> <br> <br>
-        <%= f.radio_button :q3, :false, id: "a32" %>
+        <%= radio_button_tag :q3, :false, id: "a32" %>
         <label for="a32" class="waves-effect waves-light btn q3"><%= $request_questions[2].answers[2].desc %></label> <br> <br>
-        <%= f.radio_button :q3, :false, id: "a33" %>
+        <%= radio_button_tag :q3, :false, id: "a33" %>
         <label for="a33" class="waves-effect waves-light btn q3"><%= $request_questions[2].answers[3].desc %></label>
 
       </div>
@@ -68,7 +69,7 @@
 
   <div class="row box">
     <div class="">
-      <%= f.submit "Enviar Respostas", class: "btn waves-effect waves-light blue sub actb col s5" %>
+      <%= submit_tag "Enviar Respostas", class: "btn waves-effect waves-light blue sub actb col s5" %>
     </div>
 
     <div class="btn deep-purple darken-3 waves-effect rr right col s5 actb "> REFAZER RESPOSTAS</div>

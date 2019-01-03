@@ -19,14 +19,15 @@ class UserRequest < ApplicationRecord
   after_create :generate_request_questions
 
   def generate_request_questions
+    # criar as perguntas da requisição
     if self.return_web_service
-      # criar as perguntas da requisição
-      # Busco uma perguntas aleatorias no banco
+      # Busco todas perguntas
       questions = Question.all
       for i in 1..3
         question = questions.sample
+        questions = questions.reject {|a| a == question} # rejeito as questoes que ja usei
         # Crio pergunta baseado na requisicao do usuario
-        RequestQuestion.create(desc: question.desc, question: question, user_request: self)
+        RequestQuestion.create(desc: question.desc, question: question, user_request: self, value: false)
       end
     end
   end

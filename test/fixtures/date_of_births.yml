@@ -1,11 +1,11 @@
 # == Schema Information
 #
-# Table name: names
+# Table name: date_of_births
 #
 #  id         :bigint(8)        not null, primary key
-#  last_name  :string
-#  name       :string
-#  sexo       :boolean
+#  day        :string
+#  month      :string
+#  year       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -13,9 +13,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  desc: MyString
-  sexo: false
+  day: MyString
+  month: MyString
+  year: MyString
 
 two:
-  desc: MyString
-  sexo: false
+  day: MyString
+  month: MyString
+  year: MyString

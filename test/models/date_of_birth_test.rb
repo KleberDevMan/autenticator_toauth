@@ -1,18 +1,18 @@
 # == Schema Information
 #
-# Table name: names
+# Table name: date_of_births
 #
 #  id         :bigint(8)        not null, primary key
-#  last_name  :string
-#  name       :string
-#  sexo       :boolean
+#  day        :string
+#  month      :string
+#  year       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'test_helper'
 
-class NameTest < ActiveSupport::TestCase
+class DateOfBirthTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

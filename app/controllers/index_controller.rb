@@ -1,4 +1,7 @@
 class IndexController < ApplicationController
+
+  def index; end
+
   def sign_up
     if params[:cpf] === '69199128055'
 
@@ -18,4 +21,7 @@ class IndexController < ApplicationController
   end
 
   def questions; end
+
+  def result; end
+
 end
