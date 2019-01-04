@@ -8,7 +8,7 @@ namespace :dev do
   end
 
   desc 'Apaga, cria, migra e popula banco de dados'
-  task drop_end_set_db: :environment do
+  task drop_and_set_db: :environment do
     if Rails.env.development?
       show_sppiner("Apagando BD...") do
         %x{rails db:drop}
@@ -35,6 +35,10 @@ namespace :dev do
       # Popula ---------
       show_sppiner("Adicionando QuestionTypes...") do
         %x{rails dev:add_question_types}
+      end
+
+      show_sppiner("Adicionando QuestionSubTypes...") do
+        %x{rails dev:add_question_sub_types}
       end
 
       show_sppiner("Adicionando Questions...") do
@@ -72,7 +76,7 @@ namespace :dev do
             desc: 'County'
         },
         {
-            desc: 'Date'
+            desc: 'DateOfBirth'
         }
     ]
     question_types.each do |question_type|
@@ -80,20 +84,83 @@ namespace :dev do
     end
   end
 
+  desc 'Cadastro de QuestionSubTypes'
+  task add_question_sub_types: :environment do
+    question_sub_types = [
+        {
+            desc: 'first_name',
+            question_type: QuestionType.where(desc: 'Name').take!,
+            code: '1'
+        },
+        {
+            desc: 'second_name',
+            question_type: QuestionType.where(desc: 'Name').take!,
+            code: '2'
+        },
+        {
+            desc: 'last_name',
+            question_type: QuestionType.where(desc: 'Name').take!,
+            code: '3'
+        },
+        {
+            desc: 'last_letter_of_the_first_name',
+            question_type: QuestionType.where(desc: 'Name').take!,
+            code: '4'
+        },
+        {
+            desc: 'district_name',
+            question_type: QuestionType.where(desc: 'District').take!,
+            code: '1'
+        },
+        {
+            desc: 'birthday',
+            question_type: QuestionType.where(desc: 'DateOfBirth').take!,
+            code: '1'
+        },
+        {
+            desc: 'birthmonth',
+            question_type: QuestionType.where(desc: 'DateOfBirth').take!,
+            code: '2'
+        },
+        {
+            desc: 'birthyear',
+            question_type: QuestionType.where(desc: 'DateOfBirth').take!,
+            code: '3'
+        }
+    ]
+    question_sub_types.each do |question_sub_type|
+      QuestionSubType.find_or_create_by!(question_sub_type)
+    end
+  end
+
   desc 'Cadastro de Questions'
   task add_questions: :environment do
+
+    # tipos de pergunta
+    name_type = QuestionType.where(desc: 'Name').take!
+    district_type = QuestionType.where(desc: 'District').take!
+    date_of_birth_type = QuestionType.where(desc: 'DateOfBirth').take!
+
     questions = [
         {
             desc: 'Qual o seu primeiro nome?',
-            question_type: QuestionType.where(desc: 'Name').take!
+            question_type: name_type,
+            question_sub_type: QuestionSubType.where(question_type: name_type, code: '1').take!
+        },
+        {
+            desc: 'Qual o seu último nome?',
+            question_type: name_type,
+            question_sub_type: QuestionSubType.where(question_type: name_type, code: '3').take!
         },
         {
             desc: 'Em que bairro voce vive?',
-            question_type: QuestionType.where(desc: 'District').take!
+            question_type: district_type,
+            question_sub_type: QuestionSubType.where(question_type: district_type, code: '1').take!
         },
         {
             desc: 'Em qual mês você nasceu?',
-            question_type: QuestionType.where(desc: 'Date').take!
+            question_type: date_of_birth_type,
+            question_sub_type: QuestionSubType.where(question_type: date_of_birth_type, code: '2').take!
         }
     ]
     questions.each do |question|
@@ -106,17 +173,17 @@ namespace :dev do
     date_of_births = [
         {
             day: '6',
-            month: '4',
+            month: 'abril',
             year: '1998'
         },
         {
             day: '7',
-            month: '5',
+            month: 'maio',
             year: '1999'
         },
         {
             day: '8',
-            month: '6',
+            month: 'junho',
             year: '2000'
         }
     ]

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_03_182225) do
+ActiveRecord::Schema.define(version: 2019_01_04_171911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2019_01_03_182225) do
     t.string "last_name"
   end
 
+  create_table "question_sub_types", force: :cascade do |t|
+    t.string "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "question_type_id"
+    t.string "code"
+    t.index ["question_type_id"], name: "index_question_sub_types_on_question_type_id"
+  end
+
   create_table "question_types", force: :cascade do |t|
     t.string "desc"
     t.datetime "created_at", null: false
@@ -64,6 +73,8 @@ ActiveRecord::Schema.define(version: 2019_01_03_182225) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "question_type_id"
+    t.bigint "question_sub_type_id"
+    t.index ["question_sub_type_id"], name: "index_questions_on_question_sub_type_id"
     t.index ["question_type_id"], name: "index_questions_on_question_type_id"
   end
 
@@ -88,6 +99,8 @@ ActiveRecord::Schema.define(version: 2019_01_03_182225) do
   end
 
   add_foreign_key "answers", "request_questions"
+  add_foreign_key "question_sub_types", "question_types"
+  add_foreign_key "questions", "question_sub_types"
   add_foreign_key "questions", "question_types"
   add_foreign_key "request_questions", "questions"
   add_foreign_key "request_questions", "user_requests"

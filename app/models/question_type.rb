@@ -10,4 +10,5 @@
 
 class QuestionType < ApplicationRecord
   has_many :questions
+  has_many :question_sub_types
 end
