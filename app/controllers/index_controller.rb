@@ -20,7 +20,11 @@ class IndexController < ApplicationController
     end
   end
 
-  def questions; end
+  def questions
+    q1 = false
+    q2 = false
+    q3 = false
+  end
 
   def result; end
 
