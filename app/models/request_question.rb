@@ -39,10 +39,10 @@ class RequestQuestion < ApplicationRecord
     # tipos de pergunta
     name_type = QuestionType.where(desc: 'Name').take!
     district_type = QuestionType.where(desc: 'District').take!
-    county_type = QuestionType.where(desc: 'DateOfBirth').take!
+    county_type = QuestionType.where(desc: 'County').take!
     date_of_birth_type = QuestionType.where(desc: 'DateOfBirth').take!
 
-    # Se quer respostas do tipo: Nome
+    # Se a question for do tipo: Nome
     if self.question.question_type == name_type
 
       # Busca lista de Nomes
@@ -70,7 +70,7 @@ class RequestQuestion < ApplicationRecord
       Answer.create(desc: self.user_request.json_result, value: true, selected: false, request_question: self)
     end
 
-    # Se quer respostas do tipo: Bairro
+    # Se a question for do tipo: Bairro
     if self.question.question_type == district_type
       # Busca dados no banco
       districts = District.all

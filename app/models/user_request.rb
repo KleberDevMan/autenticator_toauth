@@ -19,6 +19,7 @@ class UserRequest < ApplicationRecord
   after_create :generate_request_questions
 
   def generate_request_questions
+
     # criar as perguntas da requisição
     if self.return_web_service
       # Busco todas perguntas
