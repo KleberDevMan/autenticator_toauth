@@ -1,128 +1,136 @@
 <%= form_tag result_path, method: 'post' do %>
 
-  <div class="deep-purple bar "></div>
 
-  <div class="card">
+  <% if $issues_submitted == nil || $issues_submitted %>
+    <%= 'Acesso negado' %>
+  <% else %>
+    <div class="deep-purple bar "></div>
 
-    <div class="field q11 card-content">
+    <div class="container">
 
-      <%= label_tag :q1, $q1.question.desc, class: "flow-text" %> <br>
-      <%= radio_button_tag :q1, $q1.answers[0].value, false, id: "a11" %>
-      <label for="a11" class="waves-effect waves-light btn q1"><%= $q1.answers[0].desc %></label> <br> <br>
-      <%= radio_button_tag :q1, $q1.answers[2].value, false, id: "a12" %>
-      <label for="a12" class="waves-effect waves-light btn q1"><%= $q1.answers[1].desc %></label> <br> <br>
-      <%= radio_button_tag :q1, $q1.answers[3].value, false, id: "a13" %>
-      <label for="a13" class="waves-effect waves-light btn q1"><%= $q1.answers[2].desc %></label> <br> <br>
-      <%= radio_button_tag :q1, $q1.answers[3].value, false, id: "a14" %>
-      <label for="a14" class="waves-effect waves-light btn q1"><%= $q1.answers[3].desc %></label>
+    <div class="card">
 
-    </div>
+      <div class="field q11 card-content">
 
-<!--    <div class="field q22 card-content">-->
-
-<!--      <%#= label_tag :q2, @q2.question.desc, class: "flow-text" %> <br>-->
-<!--      <div style="width:300px">-->
-        <%#= radio_button_tag :q2, @q2.answers[0].value, false, id: "a21" %>
-<!--        <label for="a21" class="waves-effect waves-light btn q2"><%#= @q2.answers[0].desc %></label> <br> <br>-->
-        <%#= radio_button_tag :q2, @q2.answers[1].value, false, id: "a22" %>
-<!--        <label for="a22" class="waves-effect waves-light btn q2"><%#= @q2.answers[1].desc %></label> <br> <br>-->
-        <%#= radio_button_tag :q2, @q2.answers[2].value, false, id: "a23" %>
-<!--        <label for="a23" class="waves-effect waves-light btn q2"><%#= @q2.answers[2].desc %></label> <br> <br>-->
-        <%#= radio_button_tag :q2, @q2.answers[3].value, false, id: "a24" %>
-<!--        <label for="a24" class="waves-effect waves-light btn q2"><%#= @q2.answers[3].desc %></label>-->
-
-<!--      </div>-->
-
-<!--    </div>-->
-
-<!--    <div class="field q33 card-content">-->
-
-<!--      <%#= label_tag :q3, @q3.question.desc, class: "flow-text" %> <br>-->
-<!--      <div style="width:300px">-->
-        <%#= radio_button_tag :q3, @q3.answers[0].value, false, id: "a31" %>
-<!--        <label for="a31" class="waves-effect waves-light btn q3"><%#= @q3.answers[0].desc %></label> <br> <br>-->
-        <%#= radio_button_tag :q3, @q3.answers[1].value, false, id: "a32" %>
-<!--        <label for="a32" class="waves-effect waves-light btn q3"><%#= @q3.answers[1].desc %></label> <br> <br>-->
-        <%#= radio_button_tag :q3, @q3.answers[2].value, false, id: "a33" %>
-<!--        <label for="a33" class="waves-effect waves-light btn q3"><%#= @q3.answers[2].desc %></label> <br> <br>-->
-        <%#= radio_button_tag :q3, @q3.answers[3].value, false, id: "a34" %>
-<!--        <label for="a34" class="waves-effect waves-light btn q3"><%#= @q3.answers[3].desc %></label>-->
+        <%= label_tag :q1, $q1.question.desc, class: "flow-text" %> <br>
+        <%= radio_button_tag :q1, $q1.answers[0].value, false, id: "a11" %>
+        <label for="a11" class="waves-effect waves-light btn q1"><%= $q1.answers[0].desc %></label> <br> <br>
+        <%= radio_button_tag :q1, $q1.answers[2].value, false, id: "a12" %>
+        <label for="a12" class="waves-effect waves-light btn q1"><%= $q1.answers[1].desc %></label> <br> <br>
+        <%= radio_button_tag :q1, $q1.answers[3].value, false, id: "a13" %>
+        <label for="a13" class="waves-effect waves-light btn q1"><%= $q1.answers[2].desc %></label> <br> <br>
+        <%= radio_button_tag :q1, $q1.answers[3].value, false, id: "a14" %>
+        <label for="a14" class="waves-effect waves-light btn q1"><%= $q1.answers[3].desc %></label>
 
       </div>
 
+      <div class="field q22 card-content">
 
-<!--    </div>-->
-<!--    <div class="btn deep-purple darken-3 waves-effect back2 right"> Voltar</div>-->
-<!--    <div class="btn deep-purple darken-3 waves-effect back3 right"> Voltar</div>-->
+        <%= label_tag :q2, $q2.question.desc, class: "flow-text" %> <br>
+        <div style="width:300px">
+          <%= radio_button_tag :q2, $q2.answers[0].value, false, id: "a21" %>
+          <label for="a21" class="waves-effect waves-light btn q2"><%= $q2.answers[0].desc %></label> <br> <br>
+          <%= radio_button_tag :q2, $q2.answers[1].value, false, id: "a22" %>
+          <label for="a22" class="waves-effect waves-light btn q2"><%= $q2.answers[1].desc %></label> <br> <br>
+          <%= radio_button_tag :q2, $q2.answers[2].value, false, id: "a23" %>
+          <label for="a23" class="waves-effect waves-light btn q2"><%= $q2.answers[2].desc %></label> <br> <br>
+          <%= radio_button_tag :q2, $q2.answers[3].value, false, id: "a24" %>
+          <label for="a24" class="waves-effect waves-light btn q2"><%= $q2.answers[3].desc %></label>
 
-<!--  </div>-->
+        </div>
 
-  <div class="row box">
-    <div class="">
-      <%= submit_tag "Enviar Respostas", class: "btn waves-effect waves-light blue sub actb col s5" %>
+      </div>
+
+      <div class="field q33 card-content">
+
+        <%= label_tag :q3, $q3.question.desc, class: "flow-text" %> <br>
+        <div style="width:300px">
+          <%= radio_button_tag :q3, $q3.answers[0].value, false, id: "a31" %>
+          <label for="a31" class="waves-effect waves-light btn q3"><%= $q3.answers[0].desc %></label> <br> <br>
+          <%= radio_button_tag :q3, $q3.answers[1].value, false, id: "a32" %>
+          <label for="a32" class="waves-effect waves-light btn q3"><%= $q3.answers[1].desc %></label> <br> <br>
+          <%= radio_button_tag :q3, $q3.answers[2].value, false, id: "a33" %>
+          <label for="a33" class="waves-effect waves-light btn q3"><%= $q3.answers[2].desc %></label> <br> <br>
+          <%= radio_button_tag :q3, $q3.answers[3].value, false, id: "a34" %>
+          <label for="a34" class="waves-effect waves-light btn q3"><%= $q3.answers[3].desc %></label>
+
+        </div>
+
+
+      </div>
+      <div class="btn deep-purple darken-3 waves-effect back2 right"> Voltar</div>
+      <div class="btn deep-purple darken-3 waves-effect back3 right"> Voltar</div>
+
     </div>
 
-    <div class="btn deep-purple darken-3 waves-effect rr right col s5 actb "> REFAZER RESPOSTAS</div>
+    <div class="row box">
+      <div class="">
+        <%= submit_tag "Enviar Respostas", class: "btn waves-effect waves-light blue sub actb col s5" %>
+      </div>
 
-  </div>
+      <div class="btn deep-purple darken-3 waves-effect rr right col s5 actb "> REFAZER RESPOSTAS</div>
+
+    </div>
+    </div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('.q22').hide();
+            $('.q33').hide();
+            $('.sub').hide();
+            $('.rr').hide();
+            $('.back2').hide();
+            $('.back3').hide();
+
+            $(".q1").click(function () {
+                $('.q11').hide(500);
+                $('.q22').show(500);
+                $('.bar').animate({width: "33%"});
+                $('.back2').show();
+            });
+            $(".q2").click(function () {
+                $('.q33').show(500);
+                $('.q22').hide(500);
+                $('.bar').animate({width: "66%"});
+                $('.back2').hide();
+                $('.back3').show();
+
+            });
+            $(".q3").click(function () {
+                $('.q33').hide(500);
+                $('.bar').animate({width: "100%"});
+                $('.sub').show(500);
+                $('.rr').show(500);
+                $('.back3').hide();
+            });
+
+
+            $(".back2").click(function () {
+                $('.q22').hide(500);
+                $('.q11').show(500);
+                $('.bar').animate({width: "1%"});
+                $('.back2').hide();
+
+            });
+            $(".back3").click(function () {
+                $('.q33').hide();
+                $('.q22').show();
+                $('.back3').hide();
+                $('.back2').show();
+                $('.bar').animate({width: "33%"});
+
+            });
+
+            $(".rr").click(function () {
+                $('.rr').hide();
+                $('.sub').hide();
+                $('.q11').show(500);
+                $('.bar').animate({width: "1%"})
+
+            });
+        });
+    </script>
+  <% end %>
 <% end %>
 
-<!--<script type="text/javascript">-->
-
-<!--    $(document).ready(function () {-->
-<!--        $('.q22').hide();-->
-<!--        $('.q33').hide();-->
-<!--        $('.sub').hide();-->
-<!--        $('.rr').hide();-->
-<!--        $('.back2').hide();-->
-<!--        $('.back3').hide();-->
-
-<!--        $(".q1").click(function () {-->
-<!--            $('.q11').hide(500);-->
-<!--            $('.q22').show(500);-->
-<!--            $('.bar').animate({width: "33%"});-->
-<!--            $('.back2').show();-->
-<!--        });-->
-<!--        $(".q2").click(function () {-->
-<!--            $('.q33').show(500);-->
-<!--            $('.q22').hide(500);-->
-<!--            $('.bar').animate({width: "66%"});-->
-<!--            $('.back2').hide();-->
-<!--            $('.back3').show();-->
-
-<!--        });-->
-<!--        $(".q3").click(function () {-->
-<!--            $('.q33').hide(500);-->
-<!--            $('.bar').animate({width: "100%"});-->
-<!--            $('.sub').show(500);-->
-<!--            $('.rr').show(500);-->
-<!--            $('.back3').hide();-->
-<!--        });-->
-
-
-<!--        $(".back2").click(function () {-->
-<!--            $('.q22').hide(500);-->
-<!--            $('.q11').show(500);-->
-<!--            $('.bar').animate({width: "1%"});-->
-<!--            $('.back2').hide();-->
-
-<!--        });-->
-<!--        $(".back3").click(function () {-->
-<!--            $('.q33').hide();-->
-<!--            $('.q22').show();-->
-<!--            $('.back3').hide();-->
-<!--            $('.back2').show();-->
-<!--            $('.bar').animate({width: "33%"});-->
-
-<!--        });-->
-
-<!--        $(".rr").click(function () {-->
-<!--            $('.rr').hide();-->
-<!--            $('.sub').hide();-->
-<!--            $('.q11').show(500);-->
-<!--            $('.bar').animate({width: "1%"})-->
-
-<!--        });-->
-
-<!--    });-->
-<!--</script>-->

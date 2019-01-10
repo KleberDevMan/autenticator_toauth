@@ -172,19 +172,34 @@ namespace :dev do
   task add_date_of_births: :environment do
     date_of_births = [
         {
-            day: '6',
-            month: 'abril',
+            day: '06',
+            month: '04',
             year: '1998'
         },
         {
-            day: '7',
-            month: 'maio',
+            day: '07',
+            month: '05',
             year: '1999'
         },
         {
-            day: '8',
-            month: 'junho',
+            day: '08',
+            month: '06',
             year: '2000'
+        },
+        {
+            day: '09',
+            month: '07',
+            year: '1997'
+        },
+        {
+            day: '17',
+            month: '08',
+            year: '1993'
+        },
+        {
+            day: '28',
+            month: '11',
+            year: '1980'
         }
     ]
     date_of_births.each do |date_of_birth|

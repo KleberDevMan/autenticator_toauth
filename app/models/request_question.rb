@@ -46,34 +46,44 @@ class RequestQuestion < ApplicationRecord
     if self.question.question_type == name_type
 
       # Busca lista de Nomes
-      names = Name.all
+      # names = Name.all
+      name_true = self.user_request.jsonb_result['Nome']
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
         # primeiro nome
       when '1'
         for i in 1..3
-          name = names.sample
-          names = names.reject {|a| a == name}
-          Answer.create(desc: name.name, value: false, selected: false, request_question: self)
+          # name = names.sample
+          # names = names.reject {|a| a == name}
+          Answer.create(desc: Faker::Name.first_name, value: false, selected: false, request_question: self)
         end
+
+        # Criar uma resposta verdadeira
+        Answer.create(desc: name_true.truncate_words(1, omission: ''), value: true, selected: false, request_question: self)
+
         # sobrenome
       when '3'
         for i in 1..3
-          name = names.sample
-          names = names.reject {|a| a == name}
-          Answer.create(desc: name.last_name, value: false, selected: false, request_question: self)
+          # name = names.sample
+          # names = names.reject {|a| a == name}
+          Answer.create(desc: Faker::Name.last_name, value: false, selected: false, request_question: self)
         end
+
+        # Criar uma resposta verdadeira
+        index_last_space = name_true.rindex(' ') + 1
+        size_name = name_true.size
+        Answer.create(desc: name_true[index_last_space, size_name], value: true, selected: false, request_question: self)
       end
 
-      # Criar uma resposta verdadeira
-      Answer.create(desc: self.user_request.json_result, value: true, selected: false, request_question: self)
+
     end
 
     # Se a question for do tipo: Bairro
     if self.question.question_type == district_type
       # Busca dados no banco
       districts = District.all
+      district_true = self.user_request.jsonb_result['Bairro']
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
@@ -86,7 +96,7 @@ class RequestQuestion < ApplicationRecord
       end
 
       # Cria uma resposta verdadeira
-      Answer.create(desc: self.user_request.json_result, value: true, selected: false, request_question: self)
+      Answer.create(desc: district_true, value: true, selected: false, request_question: self)
     end
 
 
@@ -94,6 +104,7 @@ class RequestQuestion < ApplicationRecord
     if self.question.question_type == county_type
       # Busca dados no banco
       counties = County.all
+      county_true = self.user_request.jsonb_result['Municipio']
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
@@ -106,13 +117,15 @@ class RequestQuestion < ApplicationRecord
       end
 
       # Cria uma resposta verdadeira
-      Answer.create(desc: self.user_request.json_result, value: true, selected: false, request_question: self)
+      Answer.create(desc: county_true, value: true, selected: false, request_question: self)
     end
 
     # Se quer respostas do tipo: Data de Nascimento
     if self.question.question_type == date_of_birth_type
       # Busca dados no banco
       date_of_births = DateOfBirth.all
+      date_of_birth_true = self.user_request.jsonb_result['DataNascimento']
+      date_of_birth_true = date_of_birth_true.to_s
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
@@ -122,22 +135,33 @@ class RequestQuestion < ApplicationRecord
           date_of_births = date_of_births.reject {|a| a == date_of_birth}
           Answer.create(desc: date_of_birth.day, value: false, selected: false, request_question: self)
         end
+
+        # Coloca uma resposta verdadeira
+        Answer.create(desc: date_of_birth_true[6..7], value: true, selected: false, request_question: self)
+
       when '2'
         for i in 1..3
           date_of_birth = date_of_births.sample
           date_of_births = date_of_births.reject {|a| a == date_of_birth}
           Answer.create(desc: date_of_birth.month, value: false, selected: false, request_question: self)
         end
+
+        # Coloca uma resposta verdadeira
+        Answer.create(desc: date_of_birth_true[4..5], value: true, selected: false, request_question: self)
+
       when '3'
         for i in 1..3
           date_of_birth = date_of_births.sample
           date_of_births = date_of_births.reject {|a| a == date_of_birth}
           Answer.create(desc: date_of_birth.year, value: false, selected: false, request_question: self)
         end
+
+        # Coloca uma resposta verdadeira
+        Answer.create(desc: date_of_birth_true[0..3], value: true, selected: false, request_question: self)
+
       end
 
-      # Coloca uma resposta verdadeira
-      Answer.create(desc: self.user_request.json_result, value: true, selected: false, request_question: self)
+
     end
 
   end

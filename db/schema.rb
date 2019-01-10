@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_04_171911) do
+ActiveRecord::Schema.define(version: 2019_01_09_163230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 2019_01_04_171911) do
     t.datetime "updated_at", null: false
     t.string "json_result"
     t.boolean "return_web_service"
+    t.jsonb "jsonb_result", default: "{}"
   end
 
   add_foreign_key "answers", "request_questions"

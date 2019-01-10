@@ -5,6 +5,7 @@
 #  id                 :bigint(8)        not null, primary key
 #  cpf                :string
 #  json_result        :string
+#  jsonb_result       :jsonb
 #  return_web_service :boolean
 #  value              :boolean
 #  created_at         :datetime         not null

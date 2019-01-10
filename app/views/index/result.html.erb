@@ -1,10 +1,13 @@
 <div class="container" style="width: 70%; margin-top: 100px;">
   <div class="row">
     <div class="col s4 offset-s4 card">
-      <p>Resultado:</p>
-      <p>Pergunta 1: <%= @answer1 %></p>
-      <p>Pergunta 2: <%= @answer2 %></p>
-      <p>Pergunta 3: <%= @answer3 %></p>
+      <p class="center-align">Resultado:</p>
+      <ul class="collection">
+        <li class="collection-item center <%= $q1.value ? 'green-text' : 'red-text' %> list-group-item list-group-item-action"><%= $q1.desc %>  <%= $q1.value.to_s.upcase %></li>
+        <li class="collection-item center <%= $q2.value ? 'green-text' : 'red-text' %>"><%= $q2.desc %>  <%= $q2.value.to_s.upcase %></li>
+        <li class="collection-item center <%= $q3.value ? 'green-text' : 'red-text' %>"><%= $q3.desc %>  <%= $q3.value.to_s.upcase %></li>
+      </ul>
+      <p class="center-align"><%= link_to "Home", index_path %></p>
     </div>
   </div>
 </div>

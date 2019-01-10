@@ -33,7 +33,11 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails-i18n', '~> 5.1'
+
 gem 'rest-client'
+
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 gem 'tty-spinner'
 
