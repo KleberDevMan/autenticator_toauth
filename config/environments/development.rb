@@ -27,6 +27,9 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  # #Faker gem configuration
+  # Faker::Config.locale = 'pt-BR'
+
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :local
 

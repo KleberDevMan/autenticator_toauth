@@ -12,7 +12,6 @@ class IndexController < ApplicationController
 
 
     begin
-
       cpf = params[:cpf]
 
       if cpf != nil
@@ -25,11 +24,16 @@ class IndexController < ApplicationController
 
         user_request = UserRequest.create(cpf: cpf, value: false, json_result: 'Dado do Json da Receita Federal', return_web_service: true, jsonb_result: user)
 
-        $q1 = user_request.request_questions[0]
-        $q2 = user_request.request_questions[1]
-        $q3 = user_request.request_questions[2]
+        # $q1 = user_request.request_questions[0]
+        # $q2 = user_request.request_questions[1]
+        # $q3 = user_request.request_questions[2]
+
+        $questions = Array.new
+        $questions = user_request.request_questions
+
       end
-    rescue
+    rescue => error
+      puts error.backtrace
       redirect_to index_path
     end
 
@@ -44,12 +48,5 @@ class IndexController < ApplicationController
       $q3.value = params[:q3]
     end
   end
-
-  def teste
-    value = RestClient.get "#{BASE_URL}/users"
-    @users = JSON.parse(value, :symbolize_names => true)
-  end
-
-  private
 
 end

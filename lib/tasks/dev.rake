@@ -221,6 +221,24 @@ namespace :dev do
         },
         {
             desc: 'Maria Rosa'
+        },
+        {
+            desc: 'Jardim Aureny I'
+        },
+        {
+            desc: 'Jardim Aureny II'
+        },
+        {
+            desc: 'Jardim Aureny III'
+        },
+        {
+            desc: 'Setor Santa Bárbara'
+        },
+        {
+            desc: 'Setor Industrial de Taquaralto'
+        },
+        {
+            desc: 'Setor Sol Nascente'
         }
     ]
     districts.each do |district|

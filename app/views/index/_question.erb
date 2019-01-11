@@ -1,0 +1,9 @@
+<div class="field q1<%= question_counter %> card-content">
+
+  <!--  pergunta-->
+  <%= label_tag "q#{ question_counter }", question.question.desc, class: "flow-text" %> <br>
+
+  <!--  respostas-->
+  <%= render partial: "answer", collection: question.answers, locals: {question_counter: question_counter} %>
+
+</div>
