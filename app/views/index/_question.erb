@@ -1,9 +1,6 @@
-<div class="field q1<%= question_counter %> card-content">
-
+<div class="field q<%= question_counter %> card-content">
   <!--  pergunta-->
-  <%= label_tag "q#{ question_counter }", question.question.desc, class: "flow-text" %> <br>
-
+  <%= label_tag "label_q#{ question_counter }", question.question.desc, class: "flow-text" %> <br>
   <!--  respostas-->
-  <%= render partial: "answer", collection: question.answers, locals: {question_counter: question_counter} %>
-
+  <%= render partial: "answer", collection: question.answers.shuffle, locals: {question_counter: question_counter} %>
 </div>
