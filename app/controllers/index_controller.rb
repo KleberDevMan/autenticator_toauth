@@ -36,6 +36,20 @@ class IndexController < ApplicationController
 
   def result
     $issues_submitted = nil
+
+    number_question = 0
+
+    puts $questions.count
+    puts $questions.inspect
+
+    $questions.each do |question|
+      result = question.answers.find(params["q#{number_question}"]).value
+      question.value = result
+      number_question = number_question + 1
+    end
+
+    puts $questions.inspect
+
   end
 
 end
