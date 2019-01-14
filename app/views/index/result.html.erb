@@ -1,13 +1,16 @@
 <div class="container" style="width: 70%; margin-top: 100px;">
   <div class="row">
-    <div class="col s4 offset-s4 card">
-      <p class="center-align">Resultado:</p>
-      <ul class="collection">
-        <li class="collection-item center <%= $q1.value ? 'green-text' : 'red-text' %> list-group-item list-group-item-action"><%= $q1.desc %>  <%= $q1.value.to_s.upcase %></li>
-        <li class="collection-item center <%= $q2.value ? 'green-text' : 'red-text' %>"><%= $q2.desc %>  <%= $q2.value.to_s.upcase %></li>
-        <li class="collection-item center <%= $q3.value ? 'green-text' : 'red-text' %>"><%= $q3.desc %>  <%= $q3.value.to_s.upcase %></li>
-      </ul>
-      <p class="center-align"><%= link_to "Home", index_path %></p>
+    <div class="col s12 m8 l8 push-m2 push-l2 card">
+
+      <p class="col s6 right ">Resultado:</p>
+      <p class="col s6 left"><%= link_to "Home", index_path %></p>
+
+      <div class="container center">
+        <% $questions.each do |q| %>
+          <%= "#{q.desc} #{q.value}" %><br>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

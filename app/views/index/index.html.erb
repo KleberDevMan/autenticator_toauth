@@ -1,13 +1,15 @@
-
 <%= form_tag(sign_up_path, :method => "post") do %>
 
-  <p><%= t('teste.a') %></p>
 
   <div class="container" style="width: 30%; margin-top: 100px;">
     <div class="card">
       <div class="row">
         <form class="col">
           <div class="row">
+
+            <% if flash[:notice] %>
+              <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
+            <% end %>
 
             <div class="input-field col s6" style="margin-top: 40px">
               <i class="material-icons prefix">account_circle</i>
