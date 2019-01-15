@@ -35,21 +35,25 @@ class IndexController < ApplicationController
   end
 
   def result
-    $issues_submitted = nil
 
-    number_question = 0
+    if params[:q0] != nil
 
-    puts $questions.count
-    puts $questions.inspect
+      $issues_submitted = true
 
-    $questions.each do |question|
-      result = question.answers.find(params["q#{number_question}"]).value
-      question.value = result
-      number_question = number_question + 1
+      number_question = 0
+
+      puts $questions.count
+      puts $questions.inspect
+
+      $questions.each do |question|
+        result = question.answers.find(params["q#{number_question}"]).value
+        question.update(value: result)
+        number_question = number_question + 1
+      end
+
+      puts $questions.inspect
+
     end
-
-    puts $questions.inspect
-
   end
 
 end

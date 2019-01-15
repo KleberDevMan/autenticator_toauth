@@ -16,49 +16,56 @@
       </div>
 
       <div class="row box">
-        <%= submit_tag "Enviar Respostas", class: "btn waves-effect waves-light blue sub actb col s5" %>
+        <%= submit_tag "Enviar Respostas", data: { }, class: "btn waves-effect waves-light blue sub actb col s5"%>
         <div class="btn deep-purple darken-3 waves-effect rr right col s5 actb "> REFAZER RESPOSTAS</div>
       </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.q1').hide();
-            $('.q2').hide();
+            // $('.q1').hide();
+            $('.content_q1').hide();
+            // $('.q2').hide();
+            $('.content_q2').hide();
             $('.sub').hide();
             $('.rr').hide();
             $('.back2').hide();
             $('.back3').hide();
 
             $(".q0").click(function () {
-                $('.q0').hide();
-                $('.q1').show();
+                // $('.q0').hide();
+                $('.content_q0').hide();
+                $('.content_q1').show();
                 $('.back2').show();
                 // $('.bar').animate({width: "33%"});
             });
 
             $(".q1").click(function () {
-                $('.q1').hide();
-                $('.q2').show();
+                // $('.q1').hide();
+                $('.content_q1').hide();
+                $('.content_q2').show();
                 $('.back2').hide();
                 $('.back3').show();
                 // $('.bar').animate({width: "66%"});
             });
             $(".q2").click(function () {
-                $('.q2').hide();
+                // $('.q2').hide();
+                $('.content_q2').hide();
                 $('.sub').show();
                 $('.rr').show();
                 $('.back3').hide();
                 // $('.bar').animate({width: "100%"});
             });
             $(".back2").click(function () {
-                $('.q1').hide();
-                $('.q0').show();
+                // $('.q1').hide();
+                // $('.q0').show();
+                $('.content_q1').hide();
+                $('.content_q0').show();
                 $('.back2').hide();
                 // $('.bar').animate({width: "1%"});
             });
             $(".back3").click(function () {
-                $('.q2').hide();
-                $('.q1').show();
+                $('.content_q2').hide();
+                $('.content_q1').show();
                 $('.back3').hide();
                 $('.back2').show();
                 // $('.bar').animate({width: "33%"});
@@ -66,7 +73,7 @@
             $(".rr").click(function () {
                 $('.rr').hide();
                 $('.sub').hide();
-                $('.q0').show();
+                $('.content_q0').show();
                 // $('.bar').animate({width: "1%"})
             });
         });
