@@ -1,15 +1,21 @@
 <%= form_tag result_path, method: 'post' do %>
 
-  <% if $issues_submitted == nil || $issues_submitted %>
+  <% if cookies.encrypted[:issues_submitted] == nil %>
     <%= 'Acesso negado' %>
   <% else %>
     <div class="deep-purple bar "></div>
 
     <div class="container">
 
-      <div class="card center-align" style="width: 50%">
+      <div class="card center-align">
 
-        <%= render partial: "question", collection: $questions %>
+        <%# begin %>
+          <%#= render partial: "question", collection: cookies[:questions] %>
+        <%# rescue %>
+          <%#= render partial: "question", collection: ActiveSupport::JSON.decode(cookies[:questions]) %>
+        <%# end %>
+
+        <%= JSON.parse(cookies[:questions]) %>
 
         <div class="btn deep-purple darken-3 waves-effect back2 right" style="margin: 10px"> Voltar</div>
         <div class="btn deep-purple darken-3 waves-effect back3 right" style="margin: 10px"> Voltar</div>
@@ -17,16 +23,16 @@
 
         <div class="row box">
           <%= button_tag "Enviar Respostas", class: "btn waves-effect waves-light blue sub actb col s5", style: "margin: 10px" %>
-          <div class="btn deep-purple darken-3 waves-effect rr right col s5 actb z-depth-1" style="margin: 10px"> REFAZER RESPOSTAS</div>
+          <div class="btn deep-purple darken-3 waves-effect rr right col s5 actb z-depth-1" style="margin: 10px">
+            REFAZER RESPOSTAS
+          </div>
         </div>
 
       </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
-            // $('.q1').hide();
             $('.content_q1').hide();
-            // $('.q2').hide();
             $('.content_q2').hide();
             $('.sub').hide();
             $('.rr').hide();
@@ -34,52 +40,59 @@
             $('.back3').hide();
 
             $(".q0").click(function () {
-                // $('.q0').hide();
-                $('.content_q0').hide();
-                $('.content_q1').show();
-                $('.back2').show();
-                // $('.bar').animate({width: "33%"});
+                setTimeout(function () {
+                    $('.content_q0').fadeOut('fast', function () {
+                        $('.content_q1').fadeIn('fast');
+                        $('.back2').show();
+                    });
+                }, 400);
             });
 
             $(".q1").click(function () {
-                // $('.q1').hide();
-                $('.content_q1').hide();
-                $('.content_q2').show();
-                $('.back2').hide();
-                $('.back3').show();
-                // $('.bar').animate({width: "66%"});
+                setTimeout(function () {
+                    $('.content_q1').fadeOut('fast', function () {
+                        $('.content_q2').fadeIn('fast');
+                        $('.back2').hide();
+                        $('.back3').show();
+                    });
+                }, 400);
             });
+
             $(".q2").click(function () {
-                // $('.q2').hide();
-                $('.content_q2').hide();
-                $('.sub').show();
-                $('.rr').show();
-                $('.back3').hide();
-                // $('.bar').animate({width: "100%"});
+                setTimeout(function () {
+                    $('.content_q2').fadeOut('fast', function () {
+                        $('.back3').hide();
+                        $('.sub').fadeIn('fast');
+                        $('.rr').fadeIn('fast');
+                    });
+                }, 400);
             });
+
             $(".back2").click(function () {
-                // $('.q1').hide();
-                // $('.q0').show();
-                $('.content_q1').hide();
-                $('.content_q0').show();
-                $('.back2').hide();
-                // $('.bar').animate({width: "1%"});
+                setTimeout(function () {
+                    $('.content_q1').hide();
+                    $('.back2').hide();
+                    $('.content_q0').fadeIn('fast');
+                }, 400);
             });
+
             $(".back3").click(function () {
-                $('.content_q2').hide();
-                $('.content_q1').show();
-                $('.back3').hide();
-                $('.back2').show();
-                // $('.bar').animate({width: "33%"});
+                setTimeout(function () {
+                    $('.content_q2').hide();
+                    $('.back3').hide();
+                    $('.content_q1').fadeIn('fast');
+                    $('.back2').show();
+                }, 400);
             });
+
             $(".rr").click(function () {
-                $('.rr').hide();
-                $('.sub').hide();
-                $('.content_q0').show();
-                // $('.bar').animate({width: "1%"})
+                setTimeout(function () {
+                    $('.rr').hide();
+                    $('.sub').hide();
+                    $('.content_q0').fadeIn('show');
+                }, 400);
             });
         });
     </script>
   <% end %>
 <% end %>
-

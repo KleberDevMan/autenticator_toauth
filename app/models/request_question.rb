@@ -60,7 +60,7 @@ class RequestQuestion < ApplicationRecord
         end
 
         # Criar uma resposta verdadeira
-        Answer.create(desc: name_true.truncate_words(1, omission: ''), value: true, selected: false, request_question: self)
+        Answer.create(desc: name_true.truncate_words(1, omission: '').capitalize, value: true, selected: false, request_question: self)
 
         # sobrenome
       when '3'
@@ -73,7 +73,8 @@ class RequestQuestion < ApplicationRecord
         # Criar uma resposta verdadeira
         index_last_space = name_true.rindex(' ') + 1
         size_name = name_true.size
-        Answer.create(desc: name_true[index_last_space, size_name], value: true, selected: false, request_question: self)
+
+        Answer.create(desc: name_true[index_last_space, size_name].capitalize, value: true, selected: false, request_question: self)
       end
 
 
@@ -96,7 +97,7 @@ class RequestQuestion < ApplicationRecord
       end
 
       # Cria uma resposta verdadeira
-      Answer.create(desc: district_true, value: true, selected: false, request_question: self)
+      Answer.create(desc: district_true.capitalize, value: true, selected: false, request_question: self)
     end
 
 
@@ -117,7 +118,7 @@ class RequestQuestion < ApplicationRecord
       end
 
       # Cria uma resposta verdadeira
-      Answer.create(desc: county_true, value: true, selected: false, request_question: self)
+      Answer.create(desc: county_true.capitalize, value: true, selected: false, request_question: self)
     end
 
     # Se quer respostas do tipo: Data de Nascimento

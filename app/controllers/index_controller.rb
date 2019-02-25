@@ -9,14 +9,13 @@ class IndexController < ApplicationController
   end
 
   def questions
-
-
     begin
       cpf = params[:cpf]
 
       if cpf != nil
         # Usada pra saber se já submeteu o formulário
-        $issues_submitted = false
+        # $issues_submitted = false
+        cookies.encrypted[:issues_submitted] = false
 
         value = RestClient.get "#{BASE_URL}/pessoas/#{cpf}"
 
@@ -24,8 +23,13 @@ class IndexController < ApplicationController
 
         user_request = UserRequest.create(cpf: cpf, value: false, json_result: 'Dado do Json da Receita Federal', return_web_service: true, jsonb_result: user)
 
-        $questions = Array.new
-        $questions = user_request.request_questions
+        # $questions = Array.new
+        # $questions = user_request.request_questions
+
+
+
+        cookies[:questions] = JSON.generate(user_request.request_questions.to_json)
+        # cookies[:questions] = JSON.generate(user_request.request_questions)
       end
     rescue => error
       flash[:notice] = error.message
@@ -38,7 +42,7 @@ class IndexController < ApplicationController
 
     if params[:q0] != nil
 
-      $issues_submitted = true
+      cookies.delete :issues_submitted
 
       number_question = 0
 

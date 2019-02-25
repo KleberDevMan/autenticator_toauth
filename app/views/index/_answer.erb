@@ -1,2 +1,6 @@
-<%= radio_button_tag "q#{ question_counter }", answer.id, false, id: "a#{ question_counter }#{ answer_counter }" %>
-<%= label_tag "a#{ question_counter }#{ answer_counter }", answer.desc, class: "waves-effect waves-light btn q#{ question_counter }" %> <br> <br>
+<!--<%#= label_tag "a#{ question_counter }#{ answer_counter }", answer.desc, class: "waves-effect waves-light btn q#{ question_counter }" %> <br> <br>-->
+
+<label> <br> <br>
+  <%= radio_button_tag "q#{ question_counter }", answer.id, false, id: "a#{ question_counter }#{ answer_counter }", class: "q#{ question_counter } with-gap" %>
+  <span><%= answer.desc %></span>
+</label>
