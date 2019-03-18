@@ -6,11 +6,13 @@
       <p class="col s6 left"><%= link_to "Home", index_path %></p>
 
       <div class="container center">
-        <% $questions.each do |q| %>
+        <% @questions.each do |q| %>
           <%= "#{q.desc} #{q.value}" %><br>
         <% end %>
       </div>
 
+
+      <h1 class="center"><%= @result ? 'Você foi aprovado' : 'Você não passou'  %></h1>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@ class IndexController < ApplicationController
   require 'rest-client'
   require 'json'
 
-  BASE_URL = "http://localhost:3000"
+  BASE_URL = "http://localhost:4000"
 
   def index;
   end
@@ -14,22 +14,14 @@ class IndexController < ApplicationController
 
       if cpf != nil
         # Usada pra saber se já submeteu o formulário
-        # $issues_submitted = false
-        cookies.encrypted[:issues_submitted] = false
+        cookies.encrypted[:formulario_enviado] = false
 
         value = RestClient.get "#{BASE_URL}/pessoas/#{cpf}"
 
         user = JSON.parse(value, :symbolize_names => true)
 
-        user_request = UserRequest.create(cpf: cpf, value: false, json_result: 'Dado do Json da Receita Federal', return_web_service: true, jsonb_result: user)
-
-        # $questions = Array.new
-        # $questions = user_request.request_questions
-
-
-
-        cookies[:questions] = JSON.generate(user_request.request_questions.to_json)
-        # cookies[:questions] = JSON.generate(user_request.request_questions)
+        @user_request = UserRequest.create(cpf: cpf, value: false, json_result: 'Dado do Json da Receita Federal', return_web_service: true, jsonb_result: user)
+        @questions = @user_request.request_questions
       end
     rescue => error
       flash[:notice] = error.message
@@ -40,24 +32,35 @@ class IndexController < ApplicationController
 
   def result
 
-    if params[:q0] != nil
+    if params.include?(:q0) and params.include?(:q1) and params.include?(:q2)
 
-      cookies.delete :issues_submitted
+      cookies.encrypted[:formulario_enviado] = true
 
       number_question = 0
 
-      puts $questions.count
-      puts $questions.inspect
+      # Atribui o valor da alternativa escolhida a sua pergunta
+      requisicao = UserRequest.find(params[:requisicao])
 
-      $questions.each do |question|
-        result = question.answers.find(params["q#{number_question}"]).value
-        question.update(value: result)
+      @questions = requisicao.request_questions
+
+      @result = true
+
+      @questions.each do |question|
+        answer = question.answers.find(params["q#{number_question}"]).value
+        question.update(value: answer)
+        # resultado final
+        @result = (@result and question.answers.find(params["q#{number_question}"]).value)
         number_question = number_question + 1
       end
 
-      puts $questions.inspect
+      # Gerar o Token e guia-lo ate o ToAuth
+      if @result
+        # //
+      end
+
 
     end
+
   end
 
 end

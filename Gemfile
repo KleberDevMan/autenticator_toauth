@@ -20,6 +20,9 @@ gem 'rest-client'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'tty-spinner'
 
+gem 'ryanb-uniquify'
+gem 'enumerize'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'annotate'

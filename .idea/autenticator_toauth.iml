@@ -53,6 +53,7 @@
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.1.4, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.4, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="domain_name (v0.5.20180417, rbenv: 2.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="enumerize (v2.2.2, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.8.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.7.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faker (v1.9.1@5c369a, rbenv: 2.4.4) [gem]" level="application" />
@@ -95,6 +96,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rest-client (v2.0.2, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby_dep (v1.5.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v1.2.2, rbenv: 2.4.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ryanb-uniquify (v0.1.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass (v3.7.2, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-listen (v4.0.0, rbenv: 2.4.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sass-rails (v5.0.7, rbenv: 2.4.4) [gem]" level="application" />

@@ -87,6 +87,8 @@ GEM
     crass (1.0.4)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    enumerize (2.2.2)
+      activesupport (>= 3.2)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.9.25)
@@ -169,6 +171,7 @@ GEM
       netrc (~> 0.8)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
+    ryanb-uniquify (0.1.0)
     sass (3.7.2)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -232,6 +235,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
+  enumerize
   faker!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
@@ -240,6 +244,7 @@ DEPENDENCIES
   rails (~> 5.2.2)
   rails-i18n (~> 5.1)
   rest-client
+  ryanb-uniquify
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

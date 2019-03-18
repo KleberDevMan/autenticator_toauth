@@ -2,20 +2,26 @@
 #
 # Table name: user_requests
 #
-#  id                 :bigint(8)        not null, primary key
-#  cpf                :string
-#  json_result        :string
-#  jsonb_result       :jsonb
-#  return_web_service :boolean
-#  value              :boolean
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
+#  id                  :bigint(8)        not null, primary key
+#  cpf                 :string
+#  json_result         :string
+#  jsonb_result        :jsonb
+#  registration_status :string
+#  return_web_service  :boolean
+#  token               :string
+#  value               :boolean
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 
 class UserRequest < ApplicationRecord
   # has_many = "tem muitos"
   # lê-se: "UserRequest possui muitas request_questions"
   has_many :request_questions
+
+  extend Enumerize
+
+  enumerize :registration_status, in: [:created, :registrated, :expired], predicates: true, default: :created
 
   after_create :generate_request_questions
 

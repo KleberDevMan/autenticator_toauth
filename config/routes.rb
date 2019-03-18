@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   post 'index/questions', to: 'index#questions', as: 'sign_up'
   get 'index/questions', to: 'index#questions', as: 'questions'
   post 'index/result', to: 'index#result', as: 'result'
-  get 'index/result', to: 'index#result'
+  # get 'index/result', to: 'index#result'
   get 'index/index', to: 'index#index', as: 'index'
 
   root to: 'index#index'

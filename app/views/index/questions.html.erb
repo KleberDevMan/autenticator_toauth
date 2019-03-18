@@ -1,6 +1,6 @@
-<%= form_tag result_path, method: 'post' do %>
+<%= form_tag result_path(requisicao: @user_request.id), method: 'post' do %>
 
-  <% if cookies.encrypted[:issues_submitted] == nil %>
+  <% if cookies.encrypted[:formulario_enviado] == nil || cookies.encrypted[:formulario_enviado] %>
     <%= 'Acesso negado' %>
   <% else %>
     <div class="deep-purple bar "></div>
@@ -9,13 +9,7 @@
 
       <div class="card center-align">
 
-        <%# begin %>
-          <%#= render partial: "question", collection: cookies[:questions] %>
-        <%# rescue %>
-          <%#= render partial: "question", collection: ActiveSupport::JSON.decode(cookies[:questions]) %>
-        <%# end %>
-
-        <%= JSON.parse(cookies[:questions]) %>
+        <%= render partial: "question", collection: @questions %>
 
         <div class="btn deep-purple darken-3 waves-effect back2 right" style="margin: 10px"> Voltar</div>
         <div class="btn deep-purple darken-3 waves-effect back3 right" style="margin: 10px"> Voltar</div>

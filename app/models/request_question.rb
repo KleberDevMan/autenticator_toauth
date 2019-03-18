@@ -51,6 +51,7 @@ class RequestQuestion < ApplicationRecord
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
+
         # primeiro nome
       when '1'
         for i in 1..3
@@ -124,16 +125,18 @@ class RequestQuestion < ApplicationRecord
     # Se quer respostas do tipo: Data de Nascimento
     if self.question.question_type == date_of_birth_type
       # Busca dados no banco
-      date_of_births = DateOfBirth.all
       date_of_birth_true = self.user_request.jsonb_result['DataNascimento']
       date_of_birth_true = date_of_birth_true.to_s
+      date_of_births = DateOfBirth.where.not(day: "#{date_of_birth_true[6..7]}",
+                                             month: "#{date_of_birth_true[4..5]}",
+                                             year: "#{date_of_birth_true[0..3]}")
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
       when '1'
         for i in 1..3
           date_of_birth = date_of_births.sample
-          date_of_births = date_of_births.reject {|a| a == date_of_birth}
+          date_of_births = date_of_births.rejeitar {|a| a == date_of_birth}
           Answer.create(desc: date_of_birth.day, value: false, selected: false, request_question: self)
         end
 
