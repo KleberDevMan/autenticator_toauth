@@ -47,7 +47,7 @@ class RequestQuestion < ApplicationRecord
 
       # Busca lista de Nomes
       # names = Name.all
-      name_true = self.user_request.jsonb_result['Nome']
+      name_true = self.user_request.jsonb_result['Nome'].upcase
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
@@ -57,25 +57,25 @@ class RequestQuestion < ApplicationRecord
         for i in 1..3
           # name = names.sample
           # names = names.reject {|a| a == name}
-          Answer.create(desc: Faker::Name.first_name, value: false, selected: false, request_question: self)
+          Answer.create(desc: Faker::Name.first_name.upcase, value: false, selected: false, request_question: self)
         end
 
         # Criar uma resposta verdadeira
-        Answer.create(desc: name_true.truncate_words(1, omission: '').capitalize, value: true, selected: false, request_question: self)
+        Answer.create(desc: name_true.truncate_words(1, omission: ''), value: true, selected: false, request_question: self)
 
         # sobrenome
       when '3'
         for i in 1..3
           # name = names.sample
           # names = names.reject {|a| a == name}
-          Answer.create(desc: Faker::Name.last_name, value: false, selected: false, request_question: self)
+          Answer.create(desc: Faker::Name.last_name.upcase, value: false, selected: false, request_question: self)
         end
 
         # Criar uma resposta verdadeira
         index_last_space = name_true.rindex(' ') + 1
         size_name = name_true.size
 
-        Answer.create(desc: name_true[index_last_space, size_name].capitalize, value: true, selected: false, request_question: self)
+        Answer.create(desc: name_true[index_last_space, size_name], value: true, selected: false, request_question: self)
       end
 
 
@@ -84,8 +84,9 @@ class RequestQuestion < ApplicationRecord
     # Se a question for do tipo: Bairro
     if self.question.question_type == district_type
       # Busca dados no banco
+      district_true = self.user_request.jsonb_result['Bairro'].upcase
       districts = District.all
-      district_true = self.user_request.jsonb_result['Bairro']
+      districts = districts.reject {|a| a.desc.upcase == district_true}
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
@@ -93,20 +94,21 @@ class RequestQuestion < ApplicationRecord
         for i in 1..3
           district = districts.sample
           districts = districts.reject {|a| a == district}
-          Answer.create(desc: district.desc, value: false, selected: false, request_question: self)
+          Answer.create(desc: district.desc.upcase, value: false, selected: false, request_question: self)
         end
       end
 
       # Cria uma resposta verdadeira
-      Answer.create(desc: district_true.capitalize, value: true, selected: false, request_question: self)
+      Answer.create(desc: district_true.upcase, value: true, selected: false, request_question: self)
     end
 
 
     # Se quer respostas do tipo: Muninicipio
     if self.question.question_type == county_type
       # Busca dados no banco
+      county_true = self.user_request.jsonb_result['Municipio'].upcase
       counties = County.all
-      county_true = self.user_request.jsonb_result['Municipio']
+      counties = counties.reject {|a| a.desc.upcase == county_true}
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
@@ -114,12 +116,12 @@ class RequestQuestion < ApplicationRecord
         for i in 1..3
           county = counties.sample
           counties = counties.reject {|a| a == county}
-          Answer.create(desc: county.desc, value: false, selected: false, request_question: self)
+          Answer.create(desc: county.desc.upcase, value: false, selected: false, request_question: self)
         end
       end
 
       # Cria uma resposta verdadeira
-      Answer.create(desc: county_true.capitalize, value: true, selected: false, request_question: self)
+      Answer.create(desc: county_true.upcase, value: true, selected: false, request_question: self)
     end
 
     # Se quer respostas do tipo: Data de Nascimento
