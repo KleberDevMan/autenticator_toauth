@@ -18,6 +18,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails-i18n', '~> 5.1'
 gem 'rest-client'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
+
 gem 'tty-spinner'
 
 gem 'ryanb-uniquify'

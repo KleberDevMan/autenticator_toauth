@@ -12,7 +12,13 @@
       </div>
 
 
-      <h1 class="center"><%= @result ? 'Você foi aprovado' : 'Você não passou'  %></h1>
+      <h1 class="center"><%= @result ? 'Você foi aprovado' : 'Você não passou' %></h1>
     </div>
+
+    <% if @result %>
+      <%= link_to "Proceguir #{@user_request.id}", verify_token_path(token: @user_request.token), class: 'btn btn-large btn-primary center-align' %>
+    <% end %>
+
+
   </div>
 </div>

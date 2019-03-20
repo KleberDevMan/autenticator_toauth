@@ -68,60 +68,85 @@ sequence|table|18857|18859|1
       <StateNumber>1849</StateNumber>
       <Owner>postgres</Owner>
     </database>
-    <database id="12" parent="1" name="portal_servicos_development">
-      <ObjectId>19268</ObjectId>
-      <StateNumber>1959</StateNumber>
+    <database id="12" parent="1" name="gastos_development">
+      <ObjectId>20024</ObjectId>
+      <StateNumber>2233</StateNumber>
       <Owner>postgres</Owner>
     </database>
-    <database id="13" parent="1" name="portal_servicos_test">
-      <ObjectId>19269</ObjectId>
-      <StateNumber>1960</StateNumber>
+    <database id="13" parent="1" name="porta_servicos_development">
+      <ObjectId>20229</ObjectId>
+      <StateNumber>2258</StateNumber>
       <Owner>postgres</Owner>
     </database>
-    <database id="14" parent="1" name="postgres">
+    <database id="14" parent="1" name="porta_servicos_test">
+      <ObjectId>20230</ObjectId>
+      <StateNumber>2259</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="15" parent="1" name="portal_servicos_development">
+      <ObjectId>21260</ObjectId>
+      <StateNumber>3195</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="16" parent="1" name="portal_servicos_test">
+      <ObjectId>21261</ObjectId>
+      <StateNumber>3196</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="17" parent="1" name="postgres">
       <ObjectId>13057</ObjectId>
       <Comment>default administrative connection database</Comment>
       <StateNumber>553</StateNumber>
       <Owner>postgres</Owner>
     </database>
-    <database id="15" parent="1" name="sphinx-piloto-postgres">
+    <database id="18" parent="1" name="sphinx-piloto-postgres">
       <ObjectId>16414</ObjectId>
       <StateNumber>567</StateNumber>
       <Owner>postgres</Owner>
     </database>
-    <role id="16" parent="1" name="kleber">
+    <database id="19" parent="1" name="task_manager_development">
+      <ObjectId>19634</ObjectId>
+      <StateNumber>2080</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="20" parent="1" name="task_manager_test">
+      <ObjectId>19678</ObjectId>
+      <StateNumber>2088</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <role id="21" parent="1" name="kleber">
       <ObjectId>16384</ObjectId>
       <SuperRole>1</SuperRole>
       <Inherit>1</Inherit>
       <CanLogin>1</CanLogin>
       <ConnectionLimit>-1</ConnectionLimit>
     </role>
-    <role id="17" parent="1" name="pg_monitor">
+    <role id="22" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
       <Inherit>1</Inherit>
       <ConnectionLimit>-1</ConnectionLimit>
     </role>
-    <role id="18" parent="1" name="pg_read_all_settings">
+    <role id="23" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
       <Inherit>1</Inherit>
       <ConnectionLimit>-1</ConnectionLimit>
     </role>
-    <role id="19" parent="1" name="pg_read_all_stats">
+    <role id="24" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
       <Inherit>1</Inherit>
       <ConnectionLimit>-1</ConnectionLimit>
     </role>
-    <role id="20" parent="1" name="pg_signal_backend">
+    <role id="25" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
       <Inherit>1</Inherit>
       <ConnectionLimit>-1</ConnectionLimit>
     </role>
-    <role id="21" parent="1" name="pg_stat_scan_tables">
+    <role id="26" parent="1" name="pg_stat_scan_tables">
       <ObjectId>3377</ObjectId>
       <Inherit>1</Inherit>
       <ConnectionLimit>-1</ConnectionLimit>
     </role>
-    <role id="22" parent="1" name="postgres">
+    <role id="27" parent="1" name="postgres">
       <ObjectId>10</ObjectId>
       <SuperRole>1</SuperRole>
       <Inherit>1</Inherit>
@@ -132,44 +157,44 @@ sequence|table|18857|18859|1
       <ConnectionLimit>-1</ConnectionLimit>
       <BypassRls>1</BypassRls>
     </role>
-    <schema id="23" parent="6" name="information_schema">
+    <schema id="28" parent="6" name="information_schema">
       <ObjectId>12766</ObjectId>
       <StateNumber>353</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="24" parent="6" name="pg_catalog">
+    <schema id="29" parent="6" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
       <StateNumber>350</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="25" parent="6" name="pg_temp_1">
+    <schema id="30" parent="6" name="pg_temp_1">
       <ObjectId>11736</ObjectId>
       <StateNumber>113</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="26" parent="6" name="pg_toast">
+    <schema id="31" parent="6" name="pg_toast">
       <ObjectId>99</ObjectId>
       <Comment>reserved schema for TOAST tables</Comment>
       <StateNumber>1</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="27" parent="6" name="pg_toast_temp_1">
+    <schema id="32" parent="6" name="pg_toast_temp_1">
       <ObjectId>11737</ObjectId>
       <StateNumber>113</StateNumber>
       <Owner>postgres</Owner>
     </schema>
-    <schema id="28" parent="6" name="public">
+    <schema id="33" parent="6" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
       <StateNumber>351</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionTimestamp>2019-02-07.14:26:56.924</IntrospectionTimestamp>
-      <IntrospectionStateNumber>1666</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2019-03-20.16:39:11.847</IntrospectionTimestamp>
+      <IntrospectionStateNumber>3342</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
-    <access-method id="29" parent="6" name="btree">
+    <access-method id="34" parent="6" name="btree">
       <ObjectId>403</ObjectId>
       <Comment>b-tree index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -177,7 +202,7 @@ sequence|table|18857|18859|1
       <HandlerId>330</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="30" parent="6" name="hash">
+    <access-method id="35" parent="6" name="hash">
       <ObjectId>405</ObjectId>
       <Comment>hash index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -185,7 +210,7 @@ sequence|table|18857|18859|1
       <HandlerId>331</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="31" parent="6" name="gist">
+    <access-method id="36" parent="6" name="gist">
       <ObjectId>783</ObjectId>
       <Comment>GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -193,7 +218,7 @@ sequence|table|18857|18859|1
       <HandlerId>332</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="32" parent="6" name="gin">
+    <access-method id="37" parent="6" name="gin">
       <ObjectId>2742</ObjectId>
       <Comment>GIN index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -201,7 +226,7 @@ sequence|table|18857|18859|1
       <HandlerId>333</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="33" parent="6" name="spgist">
+    <access-method id="38" parent="6" name="spgist">
       <ObjectId>4000</ObjectId>
       <Comment>SP-GiST index access method</Comment>
       <StateNumber>1</StateNumber>
@@ -209,7 +234,7 @@ sequence|table|18857|18859|1
       <HandlerId>334</HandlerId>
       <Type>index</Type>
     </access-method>
-    <access-method id="34" parent="6" name="brin">
+    <access-method id="39" parent="6" name="brin">
       <ObjectId>3580</ObjectId>
       <Comment>block range index (BRIN) access method</Comment>
       <StateNumber>1</StateNumber>
@@ -217,7 +242,7 @@ sequence|table|18857|18859|1
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <extension id="35" parent="6" name="plpgsql">
+    <extension id="40" parent="6" name="plpgsql">
       <ObjectId>13043</ObjectId>
       <Comment>PL/pgSQL procedural language</Comment>
       <StateNumber>505</StateNumber>
@@ -225,7 +250,7 @@ sequence|table|18857|18859|1
       <SchemaName>pg_catalog</SchemaName>
       <SchemaId>11</SchemaId>
     </extension>
-    <sequence id="36" parent="28" name="answers_id_seq">
+    <sequence id="41" parent="33" name="answers_id_seq">
       <ObjectId>18800</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1649</StateNumber>
@@ -233,7 +258,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="37" parent="28" name="counties_id_seq">
+    <sequence id="42" parent="33" name="counties_id_seq">
       <ObjectId>18756</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1644</StateNumber>
@@ -241,7 +266,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="38" parent="28" name="date_of_births_id_seq">
+    <sequence id="43" parent="33" name="date_of_births_id_seq">
       <ObjectId>18846</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1657</StateNumber>
@@ -249,7 +274,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="39" parent="28" name="districts_id_seq">
+    <sequence id="44" parent="33" name="districts_id_seq">
       <ObjectId>18745</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1643</StateNumber>
@@ -257,7 +282,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="40" parent="28" name="names_id_seq">
+    <sequence id="45" parent="33" name="names_id_seq">
       <ObjectId>18734</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1642</StateNumber>
@@ -265,7 +290,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="41" parent="28" name="question_sub_types_id_seq">
+    <sequence id="46" parent="33" name="question_sub_types_id_seq">
       <ObjectId>18857</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1662</StateNumber>
@@ -273,7 +298,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="42" parent="28" name="question_types_id_seq">
+    <sequence id="47" parent="33" name="question_types_id_seq">
       <ObjectId>18829</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1653</StateNumber>
@@ -281,7 +306,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="43" parent="28" name="questions_id_seq">
+    <sequence id="48" parent="33" name="questions_id_seq">
       <ObjectId>18767</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1645</StateNumber>
@@ -289,7 +314,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="44" parent="28" name="request_questions_id_seq">
+    <sequence id="49" parent="33" name="request_questions_id_seq">
       <ObjectId>18789</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1648</StateNumber>
@@ -297,7 +322,7 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <sequence id="45" parent="28" name="user_requests_id_seq">
+    <sequence id="50" parent="33" name="user_requests_id_seq">
       <ObjectId>18778</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1646</StateNumber>
@@ -305,67 +330,67 @@ sequence|table|18857|18859|1
       <CacheSize>1</CacheSize>
       <DataType>bigint</DataType>
     </sequence>
-    <table id="46" parent="28" name="answers">
+    <table id="51" parent="33" name="answers">
       <ObjectId>18802</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1652</StateNumber>
     </table>
-    <table id="47" parent="28" name="ar_internal_metadata">
+    <table id="52" parent="33" name="ar_internal_metadata">
       <ObjectId>18726</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1641</StateNumber>
     </table>
-    <table id="48" parent="28" name="counties">
+    <table id="53" parent="33" name="counties">
       <ObjectId>18758</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1644</StateNumber>
     </table>
-    <table id="49" parent="28" name="date_of_births">
+    <table id="54" parent="33" name="date_of_births">
       <ObjectId>18848</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1657</StateNumber>
     </table>
-    <table id="50" parent="28" name="districts">
+    <table id="55" parent="33" name="districts">
       <ObjectId>18747</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1643</StateNumber>
     </table>
-    <table id="51" parent="28" name="names">
+    <table id="56" parent="33" name="names">
       <ObjectId>18736</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1660</StateNumber>
     </table>
-    <table id="52" parent="28" name="question_sub_types">
+    <table id="57" parent="33" name="question_sub_types">
       <ObjectId>18859</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1665</StateNumber>
     </table>
-    <table id="53" parent="28" name="question_types">
+    <table id="58" parent="33" name="question_types">
       <ObjectId>18831</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1663</StateNumber>
     </table>
-    <table id="54" parent="28" name="questions">
+    <table id="59" parent="33" name="questions">
       <ObjectId>18769</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1664</StateNumber>
     </table>
-    <table id="55" parent="28" name="request_questions">
+    <table id="60" parent="33" name="request_questions">
       <ObjectId>18791</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1661</StateNumber>
     </table>
-    <table id="56" parent="28" name="schema_migrations">
+    <table id="61" parent="33" name="schema_migrations">
       <ObjectId>18718</ObjectId>
       <Owner>postgres</Owner>
       <StateNumber>1640</StateNumber>
     </table>
-    <table id="57" parent="28" name="user_requests">
+    <table id="62" parent="33" name="user_requests">
       <ObjectId>18780</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>1666</StateNumber>
+      <StateNumber>3342</StateNumber>
     </table>
-    <column id="58" parent="46" name="id">
+    <column id="63" parent="51" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -373,63 +398,63 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;answers_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="59" parent="46" name="desc">
+    <column id="64" parent="51" name="desc">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1649</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="46" name="value">
+    <column id="65" parent="51" name="value">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>1649</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="61" parent="46" name="selected">
+    <column id="66" parent="51" name="selected">
       <Position>4</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>1649</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="62" parent="46" name="created_at">
+    <column id="67" parent="51" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1649</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="63" parent="46" name="updated_at">
+    <column id="68" parent="51" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1649</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="64" parent="46" name="request_question_id">
+    <column id="69" parent="51" name="request_question_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1652</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="65" parent="46" name="answers_pkey">
+    <index id="70" parent="51" name="answers_pkey">
       <ObjectId>18809</ObjectId>
       <StateNumber>1649</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="66" parent="46" name="index_answers_on_request_question_id">
+    <index id="71" parent="51" name="index_answers_on_request_question_id">
       <ObjectId>18823</ObjectId>
       <StateNumber>1652</StateNumber>
       <ColNames>request_question_id</ColNames>
     </index>
-    <key id="67" parent="46" name="answers_pkey">
+    <key id="72" parent="51" name="answers_pkey">
       <ObjectId>18810</ObjectId>
       <StateNumber>1649</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>answers_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="68" parent="46" name="fk_rails_a005a8d1ee">
+    <foreign-key id="73" parent="51" name="fk_rails_a005a8d1ee">
       <ObjectId>18824</ObjectId>
       <StateNumber>1652</StateNumber>
       <ColNames>request_question_id</ColNames>
@@ -439,47 +464,47 @@ sequence|table|18857|18859|1
       <RefKeyName>request_questions_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="69" parent="47" name="key">
+    <column id="74" parent="52" name="key">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1641</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="70" parent="47" name="value">
+    <column id="75" parent="52" name="value">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1641</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="71" parent="47" name="created_at">
+    <column id="76" parent="52" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1641</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="72" parent="47" name="updated_at">
+    <column id="77" parent="52" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1641</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="73" parent="47" name="ar_internal_metadata_pkey">
+    <index id="78" parent="52" name="ar_internal_metadata_pkey">
       <ObjectId>18732</ObjectId>
       <StateNumber>1641</StateNumber>
       <ColNames>key</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="74" parent="47" name="ar_internal_metadata_pkey">
+    <key id="79" parent="52" name="ar_internal_metadata_pkey">
       <ObjectId>18733</ObjectId>
       <StateNumber>1641</StateNumber>
       <ColNames>key</ColNames>
       <UnderlyingIndexName>ar_internal_metadata_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="75" parent="48" name="id">
+    <column id="80" parent="53" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -487,40 +512,40 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;counties_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="76" parent="48" name="desc">
+    <column id="81" parent="53" name="desc">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1644</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="77" parent="48" name="created_at">
+    <column id="82" parent="53" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1644</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="78" parent="48" name="updated_at">
+    <column id="83" parent="53" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1644</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="79" parent="48" name="counties_pkey">
+    <index id="84" parent="53" name="counties_pkey">
       <ObjectId>18765</ObjectId>
       <StateNumber>1644</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="80" parent="48" name="counties_pkey">
+    <key id="85" parent="53" name="counties_pkey">
       <ObjectId>18766</ObjectId>
       <StateNumber>1644</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>counties_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="81" parent="49" name="id">
+    <column id="86" parent="54" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -528,52 +553,52 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;date_of_births_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="82" parent="49" name="day">
+    <column id="87" parent="54" name="day">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1657</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="83" parent="49" name="month">
+    <column id="88" parent="54" name="month">
       <Position>3</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1657</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="84" parent="49" name="year">
+    <column id="89" parent="54" name="year">
       <Position>4</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1657</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="85" parent="49" name="created_at">
+    <column id="90" parent="54" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1657</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="86" parent="49" name="updated_at">
+    <column id="91" parent="54" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1657</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="87" parent="49" name="date_of_births_pkey">
+    <index id="92" parent="54" name="date_of_births_pkey">
       <ObjectId>18855</ObjectId>
       <StateNumber>1657</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="88" parent="49" name="date_of_births_pkey">
+    <key id="93" parent="54" name="date_of_births_pkey">
       <ObjectId>18856</ObjectId>
       <StateNumber>1657</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>date_of_births_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="89" parent="50" name="id">
+    <column id="94" parent="55" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -581,40 +606,40 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;districts_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="90" parent="50" name="desc">
+    <column id="95" parent="55" name="desc">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1643</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="91" parent="50" name="created_at">
+    <column id="96" parent="55" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1643</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="92" parent="50" name="updated_at">
+    <column id="97" parent="55" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1643</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="93" parent="50" name="districts_pkey">
+    <index id="98" parent="55" name="districts_pkey">
       <ObjectId>18754</ObjectId>
       <StateNumber>1643</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="94" parent="50" name="districts_pkey">
+    <key id="99" parent="55" name="districts_pkey">
       <ObjectId>18755</ObjectId>
       <StateNumber>1643</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>districts_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="95" parent="51" name="id">
+    <column id="100" parent="56" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -622,52 +647,52 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;names_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="96" parent="51" name="sexo">
+    <column id="101" parent="56" name="sexo">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>1642</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="97" parent="51" name="created_at">
+    <column id="102" parent="56" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1642</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="98" parent="51" name="updated_at">
+    <column id="103" parent="56" name="updated_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1642</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="99" parent="51" name="name">
+    <column id="104" parent="56" name="name">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1659</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="100" parent="51" name="last_name">
+    <column id="105" parent="56" name="last_name">
       <Position>7</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1660</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="101" parent="51" name="names_pkey">
+    <index id="106" parent="56" name="names_pkey">
       <ObjectId>18743</ObjectId>
       <StateNumber>1642</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="102" parent="51" name="names_pkey">
+    <key id="107" parent="56" name="names_pkey">
       <ObjectId>18744</ObjectId>
       <StateNumber>1642</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>names_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="103" parent="52" name="id">
+    <column id="108" parent="57" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -675,57 +700,57 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;question_sub_types_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="104" parent="52" name="desc">
+    <column id="109" parent="57" name="desc">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1662</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="105" parent="52" name="created_at">
+    <column id="110" parent="57" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1662</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="106" parent="52" name="updated_at">
+    <column id="111" parent="57" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1662</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="107" parent="52" name="question_type_id">
+    <column id="112" parent="57" name="question_type_id">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1663</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="108" parent="52" name="code">
+    <column id="113" parent="57" name="code">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1665</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="109" parent="52" name="question_sub_types_pkey">
+    <index id="114" parent="57" name="question_sub_types_pkey">
       <ObjectId>18866</ObjectId>
       <StateNumber>1662</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="110" parent="52" name="index_question_sub_types_on_question_type_id">
+    <index id="115" parent="57" name="index_question_sub_types_on_question_type_id">
       <ObjectId>18868</ObjectId>
       <StateNumber>1663</StateNumber>
       <ColNames>question_type_id</ColNames>
     </index>
-    <key id="111" parent="52" name="question_sub_types_pkey">
+    <key id="116" parent="57" name="question_sub_types_pkey">
       <ObjectId>18867</ObjectId>
       <StateNumber>1662</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>question_sub_types_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="112" parent="52" name="fk_rails_9d6d92272c">
+    <foreign-key id="117" parent="57" name="fk_rails_9d6d92272c">
       <ObjectId>18869</ObjectId>
       <StateNumber>1663</StateNumber>
       <ColNames>question_type_id</ColNames>
@@ -735,7 +760,7 @@ sequence|table|18857|18859|1
       <RefKeyName>question_types_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="113" parent="53" name="id">
+    <column id="118" parent="58" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -743,40 +768,40 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;question_types_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="114" parent="53" name="desc">
+    <column id="119" parent="58" name="desc">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1653</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="115" parent="53" name="created_at">
+    <column id="120" parent="58" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1653</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="116" parent="53" name="updated_at">
+    <column id="121" parent="58" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1653</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <index id="117" parent="53" name="question_types_pkey">
+    <index id="122" parent="58" name="question_types_pkey">
       <ObjectId>18838</ObjectId>
       <StateNumber>1653</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="118" parent="53" name="question_types_pkey">
+    <key id="123" parent="58" name="question_types_pkey">
       <ObjectId>18839</ObjectId>
       <StateNumber>1653</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>question_types_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="119" parent="54" name="id">
+    <column id="124" parent="59" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -784,62 +809,62 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;questions_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="120" parent="54" name="desc">
+    <column id="125" parent="59" name="desc">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1645</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="121" parent="54" name="created_at">
+    <column id="126" parent="59" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1645</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="122" parent="54" name="updated_at">
+    <column id="127" parent="59" name="updated_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1645</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="123" parent="54" name="question_type_id">
+    <column id="128" parent="59" name="question_type_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1655</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="124" parent="54" name="question_sub_type_id">
+    <column id="129" parent="59" name="question_sub_type_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1664</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <index id="125" parent="54" name="questions_pkey">
+    <index id="130" parent="59" name="questions_pkey">
       <ObjectId>18776</ObjectId>
       <StateNumber>1645</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="126" parent="54" name="index_questions_on_question_type_id">
+    <index id="131" parent="59" name="index_questions_on_question_type_id">
       <ObjectId>18840</ObjectId>
       <StateNumber>1655</StateNumber>
       <ColNames>question_type_id</ColNames>
     </index>
-    <index id="127" parent="54" name="index_questions_on_question_sub_type_id">
+    <index id="132" parent="59" name="index_questions_on_question_sub_type_id">
       <ObjectId>18874</ObjectId>
       <StateNumber>1664</StateNumber>
       <ColNames>question_sub_type_id</ColNames>
     </index>
-    <key id="128" parent="54" name="questions_pkey">
+    <key id="133" parent="59" name="questions_pkey">
       <ObjectId>18777</ObjectId>
       <StateNumber>1645</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>questions_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="129" parent="54" name="fk_rails_3308b63de5">
+    <foreign-key id="134" parent="59" name="fk_rails_3308b63de5">
       <ObjectId>18841</ObjectId>
       <StateNumber>1655</StateNumber>
       <ColNames>question_type_id</ColNames>
@@ -849,7 +874,7 @@ sequence|table|18857|18859|1
       <RefKeyName>question_types_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="130" parent="54" name="fk_rails_df010536ac">
+    <foreign-key id="135" parent="59" name="fk_rails_df010536ac">
       <ObjectId>18875</ObjectId>
       <StateNumber>1664</StateNumber>
       <ColNames>question_sub_type_id</ColNames>
@@ -859,7 +884,7 @@ sequence|table|18857|18859|1
       <RefKeyName>question_sub_types_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="131" parent="55" name="id">
+    <column id="136" parent="60" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -867,68 +892,68 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;request_questions_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="132" parent="55" name="desc">
+    <column id="137" parent="60" name="desc">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1648</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="133" parent="55" name="created_at">
+    <column id="138" parent="60" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1648</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="134" parent="55" name="updated_at">
+    <column id="139" parent="60" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1648</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="135" parent="55" name="question_id">
+    <column id="140" parent="60" name="question_id">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1650</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="136" parent="55" name="user_request_id">
+    <column id="141" parent="60" name="user_request_id">
       <Position>6</Position>
       <DataType>bigint|0s</DataType>
       <StateNumber>1651</StateNumber>
       <TypeId>20</TypeId>
     </column>
-    <column id="137" parent="55" name="value">
+    <column id="142" parent="60" name="value">
       <Position>7</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>1661</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="138" parent="55" name="request_questions_pkey">
+    <index id="143" parent="60" name="request_questions_pkey">
       <ObjectId>18798</ObjectId>
       <StateNumber>1648</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="139" parent="55" name="index_request_questions_on_question_id">
+    <index id="144" parent="60" name="index_request_questions_on_question_id">
       <ObjectId>18811</ObjectId>
       <StateNumber>1650</StateNumber>
       <ColNames>question_id</ColNames>
     </index>
-    <index id="140" parent="55" name="index_request_questions_on_user_request_id">
+    <index id="145" parent="60" name="index_request_questions_on_user_request_id">
       <ObjectId>18817</ObjectId>
       <StateNumber>1651</StateNumber>
       <ColNames>user_request_id</ColNames>
     </index>
-    <key id="141" parent="55" name="request_questions_pkey">
+    <key id="146" parent="60" name="request_questions_pkey">
       <ObjectId>18799</ObjectId>
       <StateNumber>1648</StateNumber>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>request_questions_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="142" parent="55" name="fk_rails_673e662002">
+    <foreign-key id="147" parent="60" name="fk_rails_673e662002">
       <ObjectId>18812</ObjectId>
       <StateNumber>1650</StateNumber>
       <ColNames>question_id</ColNames>
@@ -938,7 +963,7 @@ sequence|table|18857|18859|1
       <RefKeyName>questions_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="143" parent="55" name="fk_rails_cc6f16ae9f">
+    <foreign-key id="148" parent="60" name="fk_rails_cc6f16ae9f">
       <ObjectId>18818</ObjectId>
       <StateNumber>1651</StateNumber>
       <ColNames>user_request_id</ColNames>
@@ -948,27 +973,27 @@ sequence|table|18857|18859|1
       <RefKeyName>user_requests_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="144" parent="56" name="version">
+    <column id="149" parent="61" name="version">
       <Position>1</Position>
       <DataType>varchar|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1640</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="145" parent="56" name="schema_migrations_pkey">
+    <index id="150" parent="61" name="schema_migrations_pkey">
       <ObjectId>18724</ObjectId>
       <StateNumber>1640</StateNumber>
       <ColNames>version</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="146" parent="56" name="schema_migrations_pkey">
+    <key id="151" parent="61" name="schema_migrations_pkey">
       <ObjectId>18725</ObjectId>
       <StateNumber>1640</StateNumber>
       <ColNames>version</ColNames>
       <UnderlyingIndexName>schema_migrations_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="147" parent="57" name="id">
+    <column id="152" parent="62" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
@@ -976,58 +1001,70 @@ sequence|table|18857|18859|1
       <DefaultExpression>nextval(&apos;user_requests_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>20</TypeId>
     </column>
-    <column id="148" parent="57" name="cpf">
+    <column id="153" parent="62" name="cpf">
       <Position>2</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1646</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="149" parent="57" name="value">
+    <column id="154" parent="62" name="value">
       <Position>3</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>1646</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="150" parent="57" name="created_at">
+    <column id="155" parent="62" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1646</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="151" parent="57" name="updated_at">
+    <column id="156" parent="62" name="updated_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>1646</StateNumber>
       <TypeId>1114</TypeId>
     </column>
-    <column id="152" parent="57" name="json_result">
+    <column id="157" parent="62" name="json_result">
       <Position>6</Position>
       <DataType>varchar|0s</DataType>
       <StateNumber>1647</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="153" parent="57" name="return_web_service">
+    <column id="158" parent="62" name="return_web_service">
       <Position>7</Position>
       <DataType>boolean|0s</DataType>
       <StateNumber>1656</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <column id="154" parent="57" name="jsonb_result">
+    <column id="159" parent="62" name="jsonb_result">
       <Position>8</Position>
       <DataType>jsonb|0s</DataType>
       <StateNumber>1666</StateNumber>
       <DefaultExpression>&apos;&quot;{}&quot;&apos;::jsonb</DefaultExpression>
       <TypeId>3802</TypeId>
     </column>
-    <index id="155" parent="57" name="user_requests_pkey">
+    <column id="160" parent="62" name="token">
+      <Position>9</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>3341</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="161" parent="62" name="registration_status">
+      <Position>10</Position>
+      <DataType>varchar|0s</DataType>
+      <StateNumber>3342</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="162" parent="62" name="user_requests_pkey">
       <ObjectId>18787</ObjectId>
       <StateNumber>1666</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="156" parent="57" name="user_requests_pkey">
+    <key id="163" parent="62" name="user_requests_pkey">
       <ObjectId>18788</ObjectId>
       <StateNumber>1646</StateNumber>
       <ColNames>id</ColNames>

@@ -39,9 +39,9 @@ class IndexController < ApplicationController
       number_question = 0
 
       # Atribui o valor da alternativa escolhida a sua pergunta
-      requisicao = UserRequest.find(params[:requisicao])
+      @user_request = UserRequest.find(params[:requisicao])
 
-      @questions = requisicao.request_questions
+      @questions = @user_request.request_questions
 
       @result = true
 
@@ -53,13 +53,21 @@ class IndexController < ApplicationController
         number_question = number_question + 1
       end
 
-      # Gerar o Token e guia-lo ate o ToAuth
-      if @result
-        # //
-      end
-
-
     end
+
+    def verify_token
+      render :json => UserRequest.where(token: params[:token])
+    end
+
+    def update_token
+      user_request = UserRequest.where(token: params[:token])
+      if user_request != nil
+        user_request.update(status: :registrated)
+      end
+      render :json => user_request
+    end
+
+
 
   end
 
