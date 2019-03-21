@@ -16,7 +16,7 @@
     </div>
 
     <% if @result %>
-      <%= link_to "Proceguir #{@user_request.id}", verify_token_path(token: @user_request.token), class: 'btn btn-large btn-primary center-align' %>
+      <%= link_to "Proceguir #{@user_request.id}", submit_token_path(token: @user_request.token), class: 'btn btn-large btn-primary center-align' %>
     <% end %>
 
 

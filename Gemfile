@@ -19,11 +19,12 @@ gem 'rails-i18n', '~> 5.1'
 gem 'rest-client'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
-
 gem 'tty-spinner'
 
 gem 'ryanb-uniquify'
 gem 'enumerize'
+
+gem 'savon', '~> 2.12.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

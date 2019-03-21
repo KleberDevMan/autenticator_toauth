@@ -55,19 +55,21 @@ class IndexController < ApplicationController
 
     end
 
+    def submit_token
+      redirect_to "http://10.9.1.240/users/registrar?token=#{params[:token]}"
+    end
+
     def verify_token
-      render :json => UserRequest.where(token: params[:token])
+      render :json => UserRequest.where(token: params[:token], registration_status: :created).first
     end
 
     def update_token
-      user_request = UserRequest.where(token: params[:token])
+      user_request = UserRequest.where(token: params[:token], registration_status: :created).first
       if user_request != nil
-        user_request.update(status: :registrated)
+        user_request.update(registration_status: :registrated)
       end
       render :json => user_request
     end
-
-
 
   end
 
