@@ -8,27 +8,55 @@ class IndexController < ApplicationController
   def index;
   end
 
+
   def questions
+    # begin
+    #   cpf = params[:cpf]
+    #
+    #   if cpf != nil
+    #     # Usada pra saber se já submeteu o formulário
+    #     cookies.encrypted[:formulario_enviado] = false
+    #
+    #     value = RestClient.get "#{BASE_URL}/pessoas/#{cpf}"
+    #
+    #     user = JSON.parse(value, :symbolize_names => true)
+    #
+    #     @user_request = UserRequest.create(cpf: cpf, value: false, json_result: 'Dado do Json da Receita Federal', return_web_service: true, jsonb_result: user)
+    #     @questions = @user_request.request_questions
+    #   end
+    # rescue => error
+    #   flash[:notice] = error.message
+    #   redirect_to index_path
+    # end
+
+
+
+
+
+
+
+
     begin
-      cpf = params[:cpf]
+      if !Rails.env.development?
+        @value = UserRequest.search_cpf(params[:cpf]).body[:ws_info_conv_proxy_execute_response][:consultarcpfpessoaperfild][:pessoa_perfil_d]
+      else
+        value = File.read(File.expand_path("../dado-receita.json", __FILE__))
 
-      if cpf != nil
-        # Usada pra saber se já submeteu o formulário
-        cookies.encrypted[:formulario_enviado] = false
+        # value = RestClient.get "#{BASE_URL}/pessoas/#{params[:cpf]}"
 
-        value = RestClient.get "#{BASE_URL}/pessoas/#{cpf}"
+        value_symbol = JSON.parse(value, :symbolize_names => true)
 
-        user = JSON.parse(value, :symbolize_names => true)
+        @value = value_symbol
 
-        @user_request = UserRequest.create(cpf: cpf, value: false, json_result: 'Dado do Json da Receita Federal', return_web_service: true, jsonb_result: user)
-        @questions = @user_request.request_questions
       end
     rescue => error
-      flash[:notice] = error.message
-      redirect_to index_path
+      @value = error
     end
 
+    redirect_to index_path(value: @value)
+
   end
+
 
   def result
 

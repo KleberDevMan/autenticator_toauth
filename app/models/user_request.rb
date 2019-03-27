@@ -25,6 +25,20 @@ class UserRequest < ApplicationRecord
 
   after_create :generate_request_questions
 
+  def self.search_cpf(cpf)
+    number_server = rand(1..6)
+    client = Savon.client(wsdl: "http://jbossslave0#{number_server}:8081/frrp-ws-intranet/servlet/aws_infoconv_proxy?WSDL")
+    response = client.call(:execute, xml: "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:fron='Fronteira_Rapida_PDC'>
+         <soapenv:Header/>
+         <soapenv:Body>
+            <fron:Ws_InfoConv_Proxy.Execute>
+               <fron:Listadecpf>#{cpf}</fron:Listadecpf>
+               <fron:Cpfusuario>06250631127</fron:Cpfusuario>
+            </fron:Ws_InfoConv_Proxy.Execute>
+         </soapenv:Body>
+      </soapenv:Envelope>")
+  end
+
   def generate_request_questions
 
     # criar as perguntas da requisição
