@@ -15,10 +15,16 @@
       <h1 class="center"><%= @result ? 'Você foi aprovado' : 'Você não passou' %></h1>
     </div>
 
+    <div class="col s12 m8 center">
+
     <% if @result %>
-      <%= link_to "Proceguir #{@user_request.id}", submit_token_path(token: @user_request.token), class: 'btn btn-large btn-primary center-align' %>
+      <%= link_to "Proceguir", submit_token_path(token: @user_request.token), class: 'btn btn-large btn-primary center-align' %>
     <% end %>
+    </div>
 
+  </div>
 
+  <div class="row">
+    <div class="col s12"><%= @user_request.inspect %></div>
   </div>
 </div>

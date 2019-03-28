@@ -1,59 +1,36 @@
 class IndexController < ApplicationController
 
-  require 'rest-client'
-  require 'json'
-
-  BASE_URL = "http://localhost:4000"
-
   def index;
   end
 
 
   def questions
-    # begin
-    #   cpf = params[:cpf]
-    #
-    #   if cpf != nil
-    #     # Usada pra saber se já submeteu o formulário
-    #     cookies.encrypted[:formulario_enviado] = false
-    #
-    #     value = RestClient.get "#{BASE_URL}/pessoas/#{cpf}"
-    #
-    #     user = JSON.parse(value, :symbolize_names => true)
-    #
-    #     @user_request = UserRequest.create(cpf: cpf, value: false, json_result: 'Dado do Json da Receita Federal', return_web_service: true, jsonb_result: user)
-    #     @questions = @user_request.request_questions
-    #   end
-    # rescue => error
-    #   flash[:notice] = error.message
-    #   redirect_to index_path
-    # end
-
-
-
-
-
-
-
 
     begin
-      if !Rails.env.development?
-        @value = UserRequest.search_cpf(params[:cpf]).body[:ws_info_conv_proxy_execute_response][:consultarcpfpessoaperfild][:pessoa_perfil_d]
-      else
-        value = File.read(File.expand_path("../dado-receita.json", __FILE__))
 
-        # value = RestClient.get "#{BASE_URL}/pessoas/#{params[:cpf]}"
+      cpf = params[:cpf]
+      if cpf != nil
 
-        value_symbol = JSON.parse(value, :symbolize_names => true)
+        if Rails.env.production?
+          value = UserRequest.search_cpf(params[:cpf]).body[:ws_info_conv_proxy_execute_response][:consultarcpfpessoaperfild][:pessoa_perfil_d]
+        else
+          value = {:cpf => "06250631127", :nome => "KLEBER JUNIO CABRAL CHAVES", :situacao_cadastral => "0", :residente_exterior => "2", :codigo_pais_exterior => "0000", :nome_pais_exterior => nil, :nome_mae => "MARIA EUNICE PESSOA CABRAL", :data_nascimento => "19980406", :sexo => "1", :natureza_ocupacao => "000", :ocupacao_principal => "000", :exercicio_ocupacao => "0000", :tipo_logradouro => "OUTROS", :logradouro => "GUARUJA QDR 121", :numero_logradouro => "3", :complemento => nil, :cep => "77270000", :bairro => "MORADA DO SOL", :codigo_municipio => "9733", :municipio => "PALMAS", :uf => "TO", :ddd => "0000", :telefone => "00000000", :unidade_administrativa => "0150100", :ano_obito => "0000", :estrangeiro => "0", :data_atualizacao => "20160612", :titulo_eleitor => nil, :erro => nil, :@xmlns => "https://infoconv.receita.fazenda.gov.br/ws/cpf/"}
+        end
 
-        @value = value_symbol
+        # Usada pra saber se já submeteu o formulário
+        cookies.encrypted[:formulario_enviado] = false
 
+        @user_request = UserRequest.create(cpf: cpf, value: false, json_result: value, return_web_service: true, jsonb_result: value)
+        @questions = @user_request.request_questions
+
+        puts "--> #{@user_request.inspect}"
+        puts "--> #{@questions.inspect}"
       end
+
     rescue => error
       @value = error
+      redirect_to index_path(value: @value)
     end
-
-    redirect_to index_path(value: @value)
 
   end
 

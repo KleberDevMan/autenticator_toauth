@@ -36,7 +36,7 @@ class RequestQuestion < ApplicationRecord
 
   def generate_answers
 
-    # tipos de pergunta
+    # Todos os tipos de pergunta
     name_type = QuestionType.where(desc: 'Name').take!
     district_type = QuestionType.where(desc: 'District').take!
     county_type = QuestionType.where(desc: 'County').take!
@@ -47,7 +47,20 @@ class RequestQuestion < ApplicationRecord
 
       # Busca lista de Nomes
       # names = Name.all
-      name_true = self.user_request.jsonb_result['Nome'].upcase
+
+      name_true = self.user_request.jsonb_result["nome"]
+
+      #
+      #
+      #
+      #
+      # name_true = self.user_request.jsonb_result["cpf"]
+      # puts "-->#{name_true}"
+      #
+      #
+      #
+
+
 
       # Verificando os sub tipos de perguntas
       case self.question.question_sub_type.code
@@ -61,9 +74,9 @@ class RequestQuestion < ApplicationRecord
         end
 
         # Criar uma resposta verdadeira
-        Answer.create(desc: name_true.truncate_words(1, omission: ''), value: true, selected: false, request_question: self)
+        Answer.create(desc: name_true.truncate_words(1, omission: '').upcase, value: true, selected: false, request_question: self)
 
-        # sobrenome
+        # ultimo nome
       when '3'
         for i in 1..3
           # name = names.sample
@@ -75,7 +88,7 @@ class RequestQuestion < ApplicationRecord
         index_last_space = name_true.rindex(' ') + 1
         size_name = name_true.size
 
-        Answer.create(desc: name_true[index_last_space, size_name], value: true, selected: false, request_question: self)
+        Answer.create(desc: name_true[index_last_space, size_name].upcase, value: true, selected: false, request_question: self)
       end
 
 
@@ -84,7 +97,11 @@ class RequestQuestion < ApplicationRecord
     # Se a question for do tipo: Bairro
     if self.question.question_type == district_type
       # Busca dados no banco
-      district_true = self.user_request.jsonb_result['Bairro'].upcase
+
+      district_true = self.user_request.jsonb_result["bairro"]
+
+      # puts "-->#{district_true}"
+
       districts = District.all
       districts = districts.reject {|a| a.desc.upcase == district_true}
 
@@ -106,7 +123,10 @@ class RequestQuestion < ApplicationRecord
     # Se quer respostas do tipo: Muninicipio
     if self.question.question_type == county_type
       # Busca dados no banco
-      county_true = self.user_request.jsonb_result['Municipio'].upcase
+      county_true = self.user_request.jsonb_result["municipio"]
+
+      # puts "-->#{county_true}"
+
       counties = County.all
       counties = counties.reject {|a| a.desc.upcase == county_true}
 
@@ -127,7 +147,7 @@ class RequestQuestion < ApplicationRecord
     # Se quer respostas do tipo: Data de Nascimento
     if self.question.question_type == date_of_birth_type
       # Busca dados no banco
-      date_of_birth_true = self.user_request.jsonb_result['DataNascimento']
+      date_of_birth_true = self.user_request.jsonb_result['data_nascimento']
       date_of_birth_true = date_of_birth_true.to_s
       date_of_births = DateOfBirth.where.not(day: "#{date_of_birth_true[6..7]}",
                                              month: "#{date_of_birth_true[4..5]}",
